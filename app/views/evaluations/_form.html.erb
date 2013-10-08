@@ -1,0 +1,103 @@
+<%= form_for ([@user,@evaluation]) do |f| %>
+		
+	<div class="field">
+		<%= f.label :dataeval, "Data da Avaliação:" %> <br>
+		<%= f.date_select(:dataeval, :order => [:day, :month, :year], :use_month_names => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], :start_year => Time.now.year - 6, :end_year => Time.now.year) %>
+	</div>
+	<p>Nos campos abaixo, digite apenas valores numéricos:</p>
+	<div class="field">
+		<%= f.label :altura, "Altura (número em cm):" %>
+		<%= f.number_field :altura %>
+	</div>
+	<div class="field">
+		<%= f.label :peso, "Peso Atual (número em kg):" %>
+		<%= f.number_field :peso %>
+	</div>
+	<div class="field">
+		<%= f.label :pgordura, "Percentual de Gordura Corporal:" %>
+		<%= f.number_field :pgordura %>
+	</div>
+	<div class="field">
+		<%= f.label :mgordura, "Peso Gordo (número em kg):" %>
+		<%= f.number_field :mgordura %>
+	</div>
+	<div class="field">
+		<%= f.label :mmagraa, "Peso magro (número em kg):" %>
+		<%= f.number_field :mmagraa %>
+	</div>
+	<div class="field">
+		<%= f.label :pgordurai, "Percentual de Gordura Ideal:" %>
+		<%= f.number_field :pgordurai %>
+	</div>
+	<div class="field">
+		<%= f.label :pesodes, "Peso desejável (número em kg):" %>
+		<%= f.number_field :pesodes %>
+	</div>
+	<div class="field">
+		<%= f.label :imc, "Índice de Massa Corporal:" %>
+		<%= f.number_field :imc %>
+	</div>
+	<div class="field">
+		<p class="justified">Metabolismo basal é a quantidade calórica que seu corpo necessita durante um dia, mantendo-se em repouso em um jejum de pelo menos doze horas, sem prejudicar o funcionamento de seus órgaõs, ou seja, <b>uma quantia mínima de calorias para a manutenção do seu corpo</b>:</p>
+		<%= f.label :metbasal, "Metabolismo Basal (número em kcal):" %>
+		<%= f.number_field :metbasal %>
+	</div>
+	<h2>Perímetros (em cm)</h2>
+	<div class="field">
+		<%= f.label :mtorax, "Medida do Torax:" %>
+		<%= f.number_field :mtorax %>
+	</div>
+		<div class="field">
+		<%= f.label :mcintura, "Medida da Cintura:" %>
+		<%= f.number_field :mcintura %>
+	</div>
+	<div class="field">
+		<%= f.label :mabdomen, "Medida do Abdome:" %>
+		<%= f.number_field :mabdomen %>
+	</div>
+	<div class="field">
+		<%= f.label :mquadril, "Medida do Quadril:" %>
+		<%= f.number_field :mquadril %>
+	</div>
+	<div class="field">
+		<p>Medidas dos Antebraços:</p>
+		<%= f.label :mantbracod, "Direito:" %>	<%= f.number_field :mantbracod %>
+		<%= f.label :mantbracoe, "Esquerdo:" %>	<%= f.number_field :mantbracoe %>
+	</div>
+	<div class="field">
+		<p>Medidas dos Braços:</p>
+		<%= f.label :mbracod, "Direito:" %>	<%= f.number_field :mbracod %>
+		<%= f.label :mbracoe, "Esquerdo:" %>	<%= f.number_field :mbracoe %>
+	</div>
+	<div class="field">
+		<p>Medidas das Coxas:</p>
+		<%= f.label :mcoxad, "Direito:" %>	<%= f.number_field :mcoxad %>
+		<%= f.label :mcoxae, "Esquerdo:" %>	<%= f.number_field :mcoxae %>
+	</div>
+	<div class="field">
+		<p>Medidas dos Panturrilhas:</p>
+		<%= f.label :mpantd, "Direito:" %>	<%= f.number_field :mpantd %>
+		<%= f.label :mpante, "Esquerdo:" %>	<%= f.number_field :mpante %>
+	</div>
+	<div class="field">
+		<p>Medidas dos Bíceps Contraídos:</p>
+		<%= f.label :mbicepsd, "Direito:" %>	<%= f.number_field :mbicepsd %>
+		<%= f.label :mbicepse, "Esquerdo:" %>	<%= f.number_field :mbicepse %>
+	</div>
+
+	<br />
+	
+	<p class="justified">Selecione agora as áreas do corpo que você deseja destacar, marcando detalhes sobre lesões, melhorias ou treinos diferenciados. Basta encontrar a área a ser utilizada na imagem ao lado e digitar no campo "Área do Detalhe" o número da área desejada.</p>
+
+	<%= f.fields_for :details do |builder| %>
+		<%= render 'detail_fields', f: builder %>
+	<% end %>
+
+	<%= link_to_add_fields "Adicionar Detalhe", f, :details %>
+
+	<div class="actions">
+		<%= f.submit "Enviar", disable_with: 'Enviando...' %>
+	</div>
+
+
+<% end %>

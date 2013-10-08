@@ -1,0 +1,11 @@
+<fieldset>
+	<%= f.label :area, "Área do detalhe:" %>
+	<%= f.text_field :area %><br />
+	<%= f.label :title, "Título do detalhe:" %>
+	<%= f.text_field :title %> <br />
+	<%= f.label :description, "Descrição do detalhe:"%> <br />
+	<%= f.text_area :description, cols: 50, rows: 2 %>
+	<%= f.hidden_field :_destroy %><br />
+	<%= link_to "Remover", '#', class: "remove_fields" %>
+</fieldset>
+<br />

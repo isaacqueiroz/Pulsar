@@ -1,0 +1,45 @@
+<%= form_for @profile, :url => user_profile_path(@user) do |f| %>
+	<% if @profile.errors.any? %>
+		<div id="error_explanation">
+		<h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+			<ul>
+			<% @profile.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+		</div>
+	<% end %>
+
+	<div class="field">
+		<%= f.label :name, "Primeiro Nome" %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :surname, "Sobrenome" %>
+		<%= f.text_field :surname %>
+	</div>
+	<div class="field">
+		<%= f.label :address1, "Endereço (Rua, Número e Complemento)" %>
+		<%= f.text_field :address1 %>
+	</div>
+	<div class="field">
+		<%= f.label :address2, "Cidade/Estado" %>
+		<%= f.text_field :address2 %>
+	</div>
+	<div class="field">
+		<%= f.label :phone, "Telefone para Contato" %>
+		<%= f.text_field :phone %>
+	</div>
+	<div class="field">
+		<%= f.label :birthdate, "Data de Nascimento" %>
+		<%= f.date_select(:birthdate, :order => [:day, :month, :year]) %>
+	</div>
+	<div class="field">
+		<%= f.label :signdate, "Data de Inscrição na Pulsar Studio Fitness" %>
+		<%= f.date_select(:signdate, :order => [:day, :month, :year]) %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Enviar", disable_with: 'Enviando...' %>
+	</div>
+<% end %>

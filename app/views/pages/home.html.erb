@@ -1,0 +1,20 @@
+<h1>Sistema Viva Bem!</h1>
+
+<% if user_signed_in? %>
+	<h2>Bem vindo, <%= current_user.username %>!</h2>
+	<p class="justified"> Este é o Sistema Viva Bem, um monitor digital de sua saúde. Nestas páginas você encontrará informações preciosas
+		quanto às suas avaliações físicas, exames e toda a sua evolução física desde a sua primeira corrida na esteira da
+		Pulsar Studio Fitness! </p>
+	<% if current_user.profile.blank? %>
+		<p>Você não possui um perfil ainda! <%= link_to 'Crie seu perfil agora!', new_user_profile_path(current_user) %></p>
+	<% else %>
+		<p>Seu perfil está completo!</p>
+		<p><%= link_to 'Veja', user_profile_path(current_user) %> ou <%= link_to 'edite', edit_user_profile_path(current_user) %> seu Perfil!</p>
+	<% end %>
+	<h2>Painel do Usuário</h2>
+	<h3>Avaliações físicas:</h3>
+	<p><%= link_to 'Todas as Avaliações...', user_evaluations_path(current_user) %></p>
+	<p><%= link_to 'Nova Avaliação...', new_user_evaluation_path(current_user) %></p>
+<% else %>
+	<h2>Bem Vindo! Você não está logado!</h2>
+<% end %>

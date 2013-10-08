@@ -1,0 +1,12 @@
+<h1>Lista de Avaliações</h1>
+<p class="justified">Aqui você poderá ver todas as avaliações físicas que já foram cadastradas em nosso sistema. Elas estão separadas e organizadas por data, basta clicar em "Leia Mais" para ver a avaliação completa ou em "Editar" para modificar alguma avaliação.</p>
+<% for evaluation in @evaluations %>
+	<p>
+		<b>Data da Avaliação:</b>
+		<%= evaluation.dataeval %>
+	</p>
+	<p> 
+		<%= link_to 'Leia Mais...', user_evaluation_path(evaluation.user_id,evaluation)%> | <%= link_to 'Editar', edit_user_evaluation_path(evaluation.user_id,evaluation)%>
+	</p>
+<% end %>
+<%= link_to 'Nova Avaliação Física', new_user_evaluation_path(@user) %>

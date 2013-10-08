@@ -1,0 +1,26 @@
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+		<div id="errorExplanation">
+		<h2><%= pluralize(@user.errors.count, "error") %> impediu este usuário de ser salvo:</h2>
+		<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	<% end %>
+	</ul>
+	</div>  
+
+
+	<div class="field">
+		<%= f.label :username, "Nome de Usuário" %>
+		<%= f.text_field :username %>
+	</div>
+	<div class="field">
+		<%= f.label :email, "Email" %>
+		<%= f.text_field :email %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Enviar", disable_with: 'Enviando...' %>
+	</div>
+
+<% end %>

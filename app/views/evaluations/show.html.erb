@@ -1,0 +1,107 @@
+<p>
+	<b>Data da Avaliação:</b>
+	<%= @evaluation.dataeval %>
+</p>
+<h2>Medidas:</h2>
+<p>
+	<b>Altura:</b>
+	<%= @evaluation.altura %>cm
+</p>
+
+<p>
+	<b>Peso (na avaliação):</b>
+	<%= @evaluation.peso %>kg
+</p>
+
+<p>
+	<b>Percentual de Gordura Corporal:</b>
+	<%= @evaluation.pgordura %>kg
+</p>
+
+<p>
+	<b>Peso Gordo:</b>
+	<%= @evaluation.mgordura %>kg
+</p>
+
+<p>
+	<b>Peso Magro:</b>
+	<%= @evaluation.mmagraa %>kg
+</p>
+
+<p>
+	<b>Percentual de Gordura:</b>
+	<%= @evaluation.pgordurai %>cm
+</p>
+
+<p>
+	<b>Peso Desejável:</b>
+	<%= @evaluation.pesodes %>kg
+</p>
+
+<p>
+	<b>Índice de Massa Corporal:</b>
+	<%= @evaluation.imc %>
+</p>
+
+<p class="justified">Metabolismo basal é a quantidade calórica que seu corpo necessita durante um dia, mantendo-se em repouso em um jejum de pelo menos doze horas, sem prejudicar o funcionamento de seus órgaõs, ou seja, <b>uma quantia mínima de calorias para a manutenção do seu corpo</b>:</p>
+
+<p>
+	<b>Metabolismo Basal:</b>
+	<%= @evaluation.metbasal %>kcal
+</p>
+
+<h2>Perímetros</h2>
+
+<p>
+	<b>Medida do Torax:</b>
+	<%= @evaluation.mtorax %>cm
+</p>
+
+<p>
+	<b>Medida da Cintura:</b>
+	<%= @evaluation.mcintura %>cm
+</p>
+
+<p>
+	<b>Medida do Abdome:</b>
+	<%= @evaluation.mabdomen %>cm
+</p>
+
+<p>
+	<b>Medida do Quadril:</b>
+	<%= @evaluation.mquadril %>cm
+</p>
+
+<p>
+	<b>Medidas dos Antebraços:</b>
+	Direito: <%= @evaluation.mantbracod %>cm
+	Esquerdo: <%= @evaluation.mantbracoe %>cm
+</p>
+
+<p>
+	<b>Medidas dos Braços:</b>
+	Direito: <%= @evaluation.mbracod %>cm
+	Esquerdo: <%= @evaluation.mbracoe %>cm
+</p>
+
+<p>
+	<b>Medidas das Coxas:</b>
+	Direito: <%= @evaluation.mcoxad %>cm
+	Esquerdo: <%= @evaluation.mcoxae %>cm
+</p>
+
+
+<p>
+	<b>Medidas dos Panturrilhas:</b>
+	Direito: <%= @evaluation.mpantd %>cm
+	Esquerdo: <%= @evaluation.mpante %>cm
+</p>
+
+<p>
+	<b>Medidas dos Bíceps Contraídos:</b>
+	Direito: <%= @evaluation.mbicepsd %>cm
+	Esquerdo: <%= @evaluation.mbicepse %>cm
+</p>
+
+<%= link_to 'Editar', edit_user_evaluation_path(@evaluation)  %>
+<%= link_to 'Voltar', user_evaluations_path(@evaluation.user_id) %>

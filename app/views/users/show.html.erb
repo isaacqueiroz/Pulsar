@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<b>Nome de usuário:</b>
+	<%= @user.username %>
+</p>
+<p>
+	<b>Email:</b>
+	<%= @user.email %>
+</p>
+
+<%= link_to 'Editar', edit_user_path(@user)  %>
+<% if @profile.blank? %>
+	<%= link_to 'Criar Perfil', new_user_profile_path(@user) %>
+<% else %>
+	<%= link_to 'Editar Perfil', user_profile_path(@user) %>
+<% end %>

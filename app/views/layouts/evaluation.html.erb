@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Pulsar Studio Fitness</title>
+
+<%= stylesheet_link_tag    "application", media: "all" %>
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "jquery.imagemapster" %>
+
+<%= csrf_meta_tag %>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href="resources/stylesheets/style.css" rel="stylesheet" type="text/css" media="screen" />
+
+</head>
+
+
+
+<body>
+
+<div id="header">
+	<%= link_to image_tag("logo.png", :border => 0), root_path %>
+</div>
+
+<div id="menu">
+	<a class="menu" href="#">Seu Perfil</a><a class="menu" href="#">Sua Saúde</a><a class="menu"  href="#">Seus Exames</a><a class="menu" href="#">Contato</a>
+</div>
+
+<div id="conteiner">
+	<div id="content_left">
+		<% flash.each do |name, msg| %>
+        	<%= content_tag :div, msg, id: "flash_#{name}" %>
+      	<% end %>
+
+    	<%= yield %>
+	</div>
+    <div id="content_right">
+
+    </div>
+
+</div>
+<div id="footer">
+	<p class="footer">© 2013 Pulsar Studio Fitness - Orgulhosamente desenvolvido por Octal SoftWorks</p>
+</div>
+
+
+</body>
+
+</html>

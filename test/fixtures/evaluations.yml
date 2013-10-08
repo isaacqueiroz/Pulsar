@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tacademia: 2013-06-17
+  sexo: MyString
+  peso: MyString
+  mmagrap: 1
+  mmagraa: 1
+  pgordura: 1
+  mtorax: 1
+  mabdomen: 1
+  mcintura: 1
+  mquadril: 1
+  mcoxa: 1
+  tflex: 1
+  user: 
+
+two:
+  tacademia: 2013-06-17
+  sexo: MyString
+  peso: MyString
+  mmagrap: 1
+  mmagraa: 1
+  pgordura: 1
+  mtorax: 1
+  mabdomen: 1
+  mcintura: 1
+  mquadril: 1
+  mcoxa: 1
+  tflex: 1
+  user: 
