@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cifose: false
+  lordose: false
+  escoliose: false
+  artrose: false
+  hernia: false
+  obs: MyText
+  image1: MyString
+  image2: MyString
+  image3: MyString
+  user: 
+
+two:
+  cifose: false
+  lordose: false
+  escoliose: false
+  artrose: false
+  hernia: false
+  obs: MyText
+  image1: MyString
+  image2: MyString
+  image3: MyString
+  user: 

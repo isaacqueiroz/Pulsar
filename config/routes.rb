@@ -64,6 +64,7 @@ Pulsar::Application.routes.draw do
     resources :evaluations do
       resources :details
     end
+    resources :postural_assessments
   end
 
   root to: 'pages#home'

@@ -1,0 +1,43 @@
+<h1>Avaliação Postural</h1>
+
+<h3>Problemas Posturais encontrados:</h3>
+
+<% if @postural_assessment.cifose %>
+	<p>Cifose</p> <br>
+<% end %>
+
+<% if @postural_assessment.lordose %>
+	<p>Lordose</p> <br>
+<% end %>
+
+<% if @postural_assessment.escoliose %>
+	<p>Escoliose</p> <br>
+<% end %>
+
+<h3>Problemas na Coluna:</h3>
+
+<% if @postural_assessment.artrose %>
+	<p>Artrose</p> <br>
+<% end %>
+
+<% if @postural_assessment.hernia %>
+	<p>Hérnia de Disco</p> <br>
+<% end %>
+
+<h3>Observações:</h3>
+
+<% if !@postural_assessment.obs.blank? %>
+	<p><%= @postural_assessment.obs%></p>
+<% end %>
+
+<h3>Fotos do Aluno:</h3>
+
+<%= image_tag @postural_assessment.image1_url(:thumb) if @postural_assessment.image1? %>
+
+<%= image_tag @postural_assessment.image2_url(:thumb) if @postural_assessment.image2? %>
+
+<%= image_tag @postural_assessment.image3_url(:thumb) if @postural_assessment.image3? %>
+
+<br>
+
+<%= link_to 'Editar', edit_user_postural_assessment_path(current_user,@postural_assessment)  %> | <%= link_to 'Voltar', user_postural_assessments_path(current_user) %>

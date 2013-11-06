@@ -1,0 +1,2 @@
+module PosturalAssessmentsHelper
+end

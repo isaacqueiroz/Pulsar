@@ -15,4 +15,5 @@ class User < ActiveRecord::Base
 
 	has_one :profile
 	has_many :evaluations
+  has_many :postural_assessments
 end

@@ -1,0 +1,45 @@
+<%= form_for [current_user,@postural_assessment], :html => {:multipart => true} do |f| %>
+  <p>Marque abaixo os poblemas posturais e de coluna encontrados:</p>
+  <p>
+  	<%= f.label :cifose, "Cifose" %>
+  	<%= f.check_box :cifose %>
+  </p>
+  <p>
+  	<%= f.label :Lordose, "Lordose" %>
+  	<%= f.check_box :lordose %>
+  </p>
+  <p>
+  	<%= f.label :Escoliose, "Escoliose" %>
+  	<%= f.check_box :escoliose %>
+  </p>
+  <p>
+  	<%= f.label :Artrose, "Artrose" %>
+  	<%= f.check_box :artrose %>
+  </p>
+  <p>
+  	<%= f.label :hernia, "Hérnia De Disco" %>
+  	<%= f.check_box :hernia %>
+  </p>
+  <p>
+  	<%= f.label :obs, "Observações Adicionais:" %><br>
+  	<%= f.text_field :obs %>
+  </p>
+  <p>Agora selecione as fotos com a análise postural do aluno:</p>
+  <p>
+  	<%= f.label :frontal, "Foto Frontal:" %>
+  	<%= f.file_field :image1 %>
+  </p>
+  <p>
+  	<%= f.label :lateral, "Foto Lateral:" %>
+  	<%= f.file_field :image2 %>
+  </p>
+  <p>
+  	<%= f.label :traseira, "Foto Costas:" %>
+  	<%= f.file_field :image3 %>
+  </p>
+
+  <div class="actions">
+    <%= f.submit "Enviar", disable_with: 'Enviando...' %>
+  </div>
+
+<% end %>

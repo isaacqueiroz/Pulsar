@@ -41,7 +41,7 @@ class EvaluationsController < ApplicationController
 		#@user.evaluation(params[:evaluation_id])
 
 		if @evaluation.update_attributes(params[:evaluation])
-			redirect_to([@user,@evaluation], :notice => 'Perfil Modificado com Sucesso')
+			redirect_to([@user,@evaluation], :notice => 'Avaliação Modificada com Sucesso')
 		else
 			render :action => "edit"
 		end

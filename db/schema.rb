@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130807201726) do
+ActiveRecord::Schema.define(:version => 20131008235255) do
 
   create_table "details", :force => true do |t|
     t.integer  "area"
@@ -55,6 +55,23 @@ ActiveRecord::Schema.define(:version => 20130807201726) do
   end
 
   add_index "evaluations", ["user_id"], :name => "index_evaluations_on_user_id"
+
+  create_table "postural_assessments", :force => true do |t|
+    t.boolean  "cifose"
+    t.boolean  "lordose"
+    t.boolean  "escoliose"
+    t.boolean  "artrose"
+    t.boolean  "hernia"
+    t.text     "obs"
+    t.string   "image1"
+    t.string   "image2"
+    t.string   "image3"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "postural_assessments", ["user_id"], :name => "index_postural_assessments_on_user_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "name"
