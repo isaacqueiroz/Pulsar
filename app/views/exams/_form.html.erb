@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+  <%= f.label :dataexame, "Data da Avaliação:" %> <br>
+    <%= f.date_select(:dataexame, :order => [:day, :month, :year], :use_month_names => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], :start_year => Time.now.year - 6, :end_year => Time.now.year) %>
+
   <div class="field">
     <%= f.label :hdl %><br />
     <%= f.number_field :hdl %>
@@ -154,6 +157,10 @@
   <div class="field">
     <%= f.label :cristais %><br />
     <%= f.number_field :cristais %>
+  </div>
+  <div class="field">
+    <%= f.label :obs %><br />
+    <%= f.text_area:obs %>
   </div>
   <div class="actions">
     <%= f.submit "Enviar", disable_with: "Enviando..." %>

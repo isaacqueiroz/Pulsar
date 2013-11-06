@@ -1,4 +1,6 @@
 <%= form_for [current_user,@postural_assessment], :html => {:multipart => true} do |f| %>
+  <%= f.label :dataeval, "Data da Avaliação:" %> <br>
+    <%= f.date_select(:dataeval, :order => [:day, :month, :year], :use_month_names => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], :start_year => Time.now.year - 6, :end_year => Time.now.year) %>
   <p>Marque abaixo os poblemas posturais e de coluna encontrados:</p>
   <p>
   	<%= f.label :cifose, "Cifose" %>
@@ -22,7 +24,7 @@
   </p>
   <p>
   	<%= f.label :obs, "Observações Adicionais:" %><br>
-  	<%= f.text_field :obs %>
+  	<%= f.text_area :obs %>
   </p>
   <p>Agora selecione as fotos com a análise postural do aluno:</p>
   <p>
