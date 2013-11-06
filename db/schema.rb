@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131008235255) do
+ActiveRecord::Schema.define(:version => 20131106171420) do
 
   create_table "details", :force => true do |t|
     t.integer  "area"
@@ -55,6 +55,57 @@ ActiveRecord::Schema.define(:version => 20131008235255) do
   end
 
   add_index "evaluations", ["user_id"], :name => "index_evaluations_on_user_id"
+
+  create_table "exams", :force => true do |t|
+    t.integer  "hdl"
+    t.integer  "ldl"
+    t.integer  "vldl"
+    t.integer  "tgo"
+    t.integer  "tgp"
+    t.integer  "ggt"
+    t.integer  "fosfatase"
+    t.integer  "bilirrubina"
+    t.integer  "acidourico"
+    t.integer  "ureia"
+    t.integer  "creatina"
+    t.integer  "cknac"
+    t.integer  "glicose"
+    t.integer  "tsh"
+    t.integer  "t4"
+    t.integer  "fsh"
+    t.integer  "prolactina"
+    t.integer  "testosterona"
+    t.integer  "estradiol"
+    t.integer  "lh"
+    t.integer  "lpo"
+    t.integer  "t3"
+    t.integer  "lipoprot"
+    t.integer  "androst"
+    t.integer  "cortisol"
+    t.integer  "homocist"
+    t.integer  "shbg"
+    t.integer  "teslivre"
+    t.integer  "insulina"
+    t.integer  "densidade"
+    t.integer  "ph"
+    t.integer  "sedimento"
+    t.integer  "soridutoras"
+    t.integer  "catomico"
+    t.integer  "hemoglobina"
+    t.integer  "cristais"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
+  end
+
+  create_table "goals", :force => true do |t|
+    t.string   "meta"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "goals", ["user_id"], :name => "index_goals_on_user_id"
 
   create_table "postural_assessments", :force => true do |t|
     t.boolean  "cifose"

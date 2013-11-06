@@ -1,0 +1,161 @@
+<%= form_for [@user,@exam] do |f| %>
+  <% if @exam.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exam.errors.count, "Erro") %> impediram este exame de ser salvo:</h2>
+
+      <ul>
+      <% @exam.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hdl %><br />
+    <%= f.number_field :hdl %>
+  </div>
+  <div class="field">
+    <%= f.label :ldl %><br />
+    <%= f.number_field :ldl %>
+  </div>
+  <div class="field">
+    <%= f.label :vldl %><br />
+    <%= f.number_field :vldl %>
+  </div>
+  <div class="field">
+    <%= f.label :tgo %><br />
+    <%= f.number_field :tgo %>
+  </div>
+  <div class="field">
+    <%= f.label :tgp %><br />
+    <%= f.number_field :tgp %>
+  </div>
+  <div class="field">
+    <%= f.label :ggt %><br />
+    <%= f.number_field :ggt %>
+  </div>
+  <div class="field">
+    <%= f.label :fosfatase %><br />
+    <%= f.number_field :fosfatase %>
+  </div>
+  <div class="field">
+    <%= f.label :bilirrubina %><br />
+    <%= f.number_field :bilirrubina %>
+  </div>
+  <div class="field">
+    <%= f.label :acidourico %><br />
+    <%= f.number_field :acidourico %>
+  </div>
+  <div class="field">
+    <%= f.label :ureia %><br />
+    <%= f.number_field :ureia %>
+  </div>
+  <div class="field">
+    <%= f.label :creatina %><br />
+    <%= f.number_field :creatina %>
+  </div>
+  <div class="field">
+    <%= f.label :cknac %><br />
+    <%= f.number_field :cknac %>
+  </div>
+  <div class="field">
+    <%= f.label :glicose %><br />
+    <%= f.number_field :glicose %>
+  </div>
+  <div class="field">
+    <%= f.label :tsh %><br />
+    <%= f.number_field :tsh %>
+  </div>
+  <div class="field">
+    <%= f.label :t4 %><br />
+    <%= f.number_field :t4 %>
+  </div>
+  <div class="field">
+    <%= f.label :fsh %><br />
+    <%= f.number_field :fsh %>
+  </div>
+  <div class="field">
+    <%= f.label :prolactina %><br />
+    <%= f.number_field :prolactina %>
+  </div>
+  <div class="field">
+    <%= f.label :testosterona %><br />
+    <%= f.number_field :testosterona %>
+  </div>
+  <div class="field">
+    <%= f.label :estradiol %><br />
+    <%= f.number_field :estradiol %>
+  </div>
+  <div class="field">
+    <%= f.label :lh %><br />
+    <%= f.number_field :lh %>
+  </div>
+  <div class="field">
+    <%= f.label :lpo %><br />
+    <%= f.number_field :lpo %>
+  </div>
+  <div class="field">
+    <%= f.label :t3 %><br />
+    <%= f.number_field :t3 %>
+  </div>
+  <div class="field">
+    <%= f.label :lipoprot %><br />
+    <%= f.number_field :lipoprot %>
+  </div>
+  <div class="field">
+    <%= f.label :androst %><br />
+    <%= f.number_field :androst %>
+  </div>
+  <div class="field">
+    <%= f.label :cortisol %><br />
+    <%= f.number_field :cortisol %>
+  </div>
+  <div class="field">
+    <%= f.label :homocist %><br />
+    <%= f.number_field :homocist %>
+  </div>
+  <div class="field">
+    <%= f.label :shbg %><br />
+    <%= f.number_field :shbg %>
+  </div>
+  <div class="field">
+    <%= f.label :teslivre %><br />
+    <%= f.number_field :teslivre %>
+  </div>
+  <div class="field">
+    <%= f.label :insulina %><br />
+    <%= f.number_field :insulina %>
+  </div>
+  <div class="field">
+    <%= f.label :densidade %><br />
+    <%= f.number_field :densidade %>
+  </div>
+  <div class="field">
+    <%= f.label :ph %><br />
+    <%= f.number_field :ph %>
+  </div>
+  <div class="field">
+    <%= f.label :sedimento %><br />
+    <%= f.number_field :sedimento %>
+  </div>
+  <div class="field">
+    <%= f.label :soridutoras %><br />
+    <%= f.number_field :soridutoras %>
+  </div>
+  <div class="field">
+    <%= f.label :catomico %><br />
+    <%= f.number_field :catomico %>
+  </div>
+  <div class="field">
+    <%= f.label :hemoglobina %><br />
+    <%= f.number_field :hemoglobina %>
+  </div>
+  <div class="field">
+    <%= f.label :cristais %><br />
+    <%= f.number_field :cristais %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Enviar", disable_with: "Enviando..." %>
+  </div>
+<% end %>

@@ -1,4 +1,5 @@
 Pulsar::Application.routes.draw do
+
   devise_for :users
   
   match '/home' => 'pages#home'
@@ -65,6 +66,7 @@ Pulsar::Application.routes.draw do
       resources :details
     end
     resources :postural_assessments
+    resources :exams
   end
 
   root to: 'pages#home'
