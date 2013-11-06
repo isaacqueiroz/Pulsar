@@ -1,0 +1,58 @@
+<h1>Sistema Viva Bem!</h1>
+
+
+<% if current_user.try(:admin?) %>
+	<h3>Olá <%= current_user.username%>!</h3>
+	<p>Você é um dos administradores do sistema! Este é o painel de admnistração do usuário <%= @user.username %>. Aqui você poderá verificar os exames e as avaliações deste usuário, além de poder editá-los e eventualmente excluí-los.</p>
+	<p>Lembre-se: Com grandes poderes vêm grandes responsabilidades.</p>
+
+<% if !@user.blank? %>
+  	<p>Usuário: <%= @user.username %>  |  Email: <%= @user.email%>  |  <%= @user.profile.blank? ? "Sem Perfil" : (link_to "Perfil", user_profile_path(@user)) %>  |  <%= link_to "Editar Usuário", edit_user_path(@user) %> </p>
+
+  	<h3>Avaliações Físicas do Usuário:</h3>    
+  	<% if !@user.evaluations.blank? %>
+  	  <% for evaluation in @user.evaluations.last(3) %>
+  	    <b>Data da Avaliação:</b>
+		<%= evaluation.dataeval %>
+  	  <% end %>
+  	  <%= link_to "Todas as avaliações físicas", user_evaluations_path(@user) %>
+  	<% else %>
+  	  <p>Não há avaliações recentes!</p>
+  	  <%= link_to "Nova avaliação física", user_evaluation_new_path(@user) %>
+  	<% end %>
+
+  	<h3>Avaliações Posturais</h3>
+
+  	<% if !@user.postural_assessments.blank? %>
+  	  <% for item in @user.postural_assessments.last(3) %>
+  	    <b>Data da Avaliação:</b>
+		<%= item.dataeval %>
+  	  <% end %>
+  	  <%= link_to "Todas as avaliações posturais", user_postural_assessments_path(@user) %>
+  	<% else %>
+  	  <p>Não há avaliações recentes!</p>
+  	  <%= link_to "Nova avaliação postural", user_postural_assessments_new_path(@user) %>
+  	<% end %>
+
+  	<h3>Exames Clínicos</h3>
+
+  	<% if !@user.exams.blank? %>
+  	  <% for item in @user.exams.last(3) %>
+  	    <b>Data do Exame:</b>
+		<%= item.dataexame %>
+  	  <% end %>
+  	  <%= link_to "Todos os exames clínicos", user_exams_path(@user) %>
+  	<% else %>
+  	  	<p>Não há exames recentes!</p>
+  	  	<%= link_to "Novo exame clínico", user_exam_new_path(@user) %>
+  	<% end %>
+
+<% else %>
+ 	 <h1>Erro 500: Algo está MUITO errado.</h1>
+ 	 <p>Você não deveria encontrar este erro ou chegar a esta página da forma em que chegou! Nossos administradores foram informados do problema! Clique <%= link_to 'aqui', :back %> para voltar e tentar novamente! Se o erro persistir, entre em contato!</p>
+<% end %>
+
+<% else %>
+	<h1>Erro 403: Acesso negado!</h1>
+	<p>Você não deveria estar aqui ou não possui privilégios o suficiente para acessar essa página! Clique <%= link_to 'aqui', :back %> para voltar!</p>
+<% end %>
