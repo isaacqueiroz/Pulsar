@@ -26,5 +26,5 @@
 	<b>Data de Inscrição na Pulsar Studio Fitness:</b> <%= @profile.signdate%>
 </p>
 
-<%= link_to 'Editar Perfil', edit_user_profile_path(current_user) %>
+<%= link_to 'Editar Perfil', edit_user_profile_path(@profile.user) %>
 <%= link_to 'Voltar...', controller: "pages", action: "home" %>

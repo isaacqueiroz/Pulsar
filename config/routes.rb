@@ -3,6 +3,7 @@ Pulsar::Application.routes.draw do
   devise_for :users
   
   match '/home' => 'pages#home'
+  match '/admin' => 'pages#administration'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

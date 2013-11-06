@@ -1,0 +1,20 @@
+<h1>Sistema Viva Bem!</h1>
+
+
+<% if current_user.try(:admin?) %>
+	<h3>Olá <%= current_user.username%>!</h3>
+	<p>Você é um dos administradores do sistema! Nesta página, você poderá acessar, editar e excluir todos os usuários, inclusive o seu. Você também poderá ceder direitos de administrados para outros usuários.</p>
+	<p>Lembre-se: Com grandes poderes vêm grandes responsabilidades.</p>
+
+<% if !@users.blank? %>
+  <% for user in @users %>
+	<p>Usuário: <%= user.username %>  |  Email: <%= user.email%>  |  <%= user.profile.blank? ? "Sem Perfil" : (link_to "Perfil", user_profile_path(user)) %>  |  Admnistrador? <%= user.admin? ? "Sim" : "Não" %>  |  <%= link_to "Editar", edit_user_path(user) %> %></p>    
+  <% end %>
+<% else %>
+ 	 <p>Nenhum usuário cadastrado foi encontrado!</p>
+<% end %>
+
+<% else %>
+	<h1>Erro 403: Acesso negado!</h1>
+	<p>Você não deveria estar aqui! Clique <%= link_to 'aqui', :back %> para voltar!</p>
+<% end %>
