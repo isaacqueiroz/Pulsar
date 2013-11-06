@@ -2,7 +2,7 @@ class ExamsController < ApplicationController
   # GET /exams
   # GET /exams.json
   def index
-    @user = current_user
+    @user = User.find(params[:user_id])
     @exams = @user.exams.all
 
     respond_to do |format|
@@ -14,7 +14,7 @@ class ExamsController < ApplicationController
   # GET /exams/1
   # GET /exams/1.json
   def show
-    @user = current_user
+    @user = User.find(params[:user_id])
     
     @exam = @user.exams.find(params[:id])
 
@@ -27,7 +27,7 @@ class ExamsController < ApplicationController
   # GET /exams/new
   # GET /exams/new.json
   def new
-    @user = current_user
+    @user = User.find(params[:user_id])
     
     @exam = Exam.new
 
@@ -41,7 +41,7 @@ class ExamsController < ApplicationController
 
   # GET /exams/1/edit
   def edit
-    @user = current_user
+    @user = User.find(params[:user_id])
     
     @exam = @user.exams.find(params[:id])
   end
@@ -49,7 +49,7 @@ class ExamsController < ApplicationController
   # POST /exams
   # POST /exams.json
   def create
-    @user = current_user
+    @user = User.find(params[:user_id])
     
     @exam = @user.exams.new(params[:exam])
 
@@ -67,7 +67,7 @@ class ExamsController < ApplicationController
   # PUT /exams/1
   # PUT /exams/1.json
   def update
-    @user = current_user
+    @user = User.find(params[:user_id])
     
     @exam = @user.exams.find(params[:id])
 
@@ -85,7 +85,7 @@ class ExamsController < ApplicationController
   # DELETE /exams/1
   # DELETE /exams/1.json
   def destroy
-    @user = current_user
+    @user = User.find(params[:user_id])
     
     @exam = @user.exams.find(params[:id])
     @exam.destroy

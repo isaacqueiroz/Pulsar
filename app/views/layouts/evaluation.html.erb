@@ -28,8 +28,21 @@
 </div>
 
 <div id="menu">
-	<a class="menu" href="#">Seu Perfil</a><a class="menu" href="#">Sua Saúde</a><a class="menu"  href="#">Seus Exames</a><a class="menu" href="#">Contato</a>
+	<% if user_signed_in? %>
+		<%= !current_user.profile.blank? ? (link_to "Seu Perfil", user_profile_path(current_user), class: "menu") : (link_to "Home", root_path, class: "menu") %> <a class="menu"  href="#">Sua Saúde</a> <%= link_to "Avaliações Físicas", user_evaluations_path(current_user), class: "menu" %> <%= link_to "Avaliações Posturais", user_postural_assessments_path(current_user), class: "menu" %> <%= link_to "Exames", user_exams_path(current_user), class: "menu" %>
+	<% end %>
+	
+	<div class="login">
+	<% if user_signed_in? %>
+          Olá <strong><%= current_user.email %></strong>.
+          <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Registrar", new_user_registration_path %> |
+          <%= link_to "Entrar", new_user_session_path %>
+    <% end %>
+    </div>
 </div>
+
 
 <div id="conteiner">
 	<div id="content_left">

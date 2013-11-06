@@ -27,7 +27,7 @@
 
     <td><%= link_to 'Ler Exame', [@user,exam] %></td>
     <td><%= link_to 'Editar Exame', edit_user_exam_path(@user,exam) %></td>
-    <td><%= link_to 'Excluir Exame', (@user,exam), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+    <td><%= link_to 'Excluir Exame', [@user,exam], method: :delete, data: { confirm: 'Tem certeza?' } %></td>
   </tr>
 <% end %>
 </table>

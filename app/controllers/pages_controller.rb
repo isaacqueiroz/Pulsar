@@ -7,4 +7,8 @@ class PagesController < ApplicationController
   	@users = User.all
   end
 
+  def userpanel
+  	@user = User.find(params[:user_id])
+  end
+
 end

@@ -3,14 +3,14 @@
 class EvaluationsController < ApplicationController
 
 	def new
-		@user = current_user
+		@user = User.find(params[:user_id])
 		@evaluation = Evaluation.new
     	@evaluation.build_user
     	render layout: "new_evaluation"
 	end
 
 	def create
-		@user = current_user
+		@user = User.find(params[:user_id])
 		@evaluation = @user.evaluations.new(params[:evaluation])
 
 	  	if @evaluation.save
@@ -26,17 +26,17 @@ class EvaluationsController < ApplicationController
 	end
 
 	def edit
-		@user = current_user
+		@user = User.find(params[:user_id])
 		@evaluation = Evaluation.find(params[:id])
 	end
 
 	def index
-		@user = current_user
+		@user = User.find(params[:user_id])
 		@evaluations = @user.evaluations
 	end
 
 	def update
-		@user = current_user
+		@user = User.find(params[:user_id])
 		@evaluation = Evaluation.find(params[:id])
 		#@user.evaluation(params[:evaluation_id])
 

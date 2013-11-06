@@ -27,7 +27,7 @@
 
 <div id="menu">
 	<% if user_signed_in? %>
-		<a class="menu" href="#">Seu Perfil</a><a class="menu"  href="#">Sua Saúde</a><a class="menu" href="<%= user_evaluations_path(current_user) %>">Avaliações</a><a class="menu" href="#">Contato</a> 	
+		<%= !current_user.profile.blank? ? (link_to "Seu Perfil", user_profile_path(current_user), class: "menu") : (link_to "Home", root_path, class: "menu") %> <a class="menu"  href="#">Sua Saúde</a> <%= link_to "Avaliações Físicas", user_evaluations_path(current_user), class: "menu" %> <%= link_to "Avaliações Posturais", user_postural_assessments_path(current_user), class: "menu" %> <%= link_to "Exames", user_exams_path(current_user), class: "menu" %>
 	<% end %>
 	
 	<div class="login">
