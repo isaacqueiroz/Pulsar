@@ -1,4 +1,4 @@
-<%= form_for [@user,@profile] do |f| %>
+<%= form_for [@user,@profile], url: user_profile_path(@user) do |f| %>
 	<% if @profile.errors.any? %>
 		<div id="error_explanation">
 		<h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -19,6 +19,12 @@
 		<%= f.label :surname, "Sobrenome" %>
 		<%= f.text_field :surname %>
 	</div>
+
+	<div>
+		<%= f.select :sex, options_for_select([["Masculino", "masc"], ["Feminino", "fem"]])%>
+	</div>
+	
+
 	<div class="field">
 		<%= f.label :address1, "Endereço (Rua, Número e Complemento)" %>
 		<%= f.text_field :address1 %>

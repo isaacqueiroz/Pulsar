@@ -6,7 +6,15 @@ class EvaluationsController < ApplicationController
 		@user = User.find(params[:user_id])
 		@evaluation = Evaluation.new
     	@evaluation.build_user
-    	render layout: "new_evaluation"
+    	if @user.profile.sex.blank?
+    		render layout: "new_evaluation_m"
+    	else
+    		if @user.profile.sex == "masc"
+    			render layout: "new_evaluation_m"
+    		else
+    			render layout: "new_evaluation_f"
+    		end
+    	end
 	end
 
 	def create
@@ -22,12 +30,32 @@ class EvaluationsController < ApplicationController
 
 	def show
 		@evaluation = Evaluation.find(params[:id])
-		render layout: "show_evaluation"
+		@user = User.find(params[:user_id])
+
+		if @user.profile.sex.blank?
+    		render layout: "show_evaluation_m"
+    	else
+    		if @user.profile.sex == "masc"
+    			render layout: "show_evaluation_m"
+    		else
+    			render layout: "show_evaluation_f"
+    		end
+    	end
 	end
 
 	def edit
 		@user = User.find(params[:user_id])
 		@evaluation = Evaluation.find(params[:id])
+
+		if @user.profile.sex.blank?
+    		render layout: "new_evaluation_m"
+    	else
+    		if @user.profile.sex == "masc"
+    			render layout: "new_evaluation_m"
+    		else
+    			render layout: "new_evaluation_f"
+    		end
+    	end
 	end
 
 	def index

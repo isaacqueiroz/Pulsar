@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Pulsar Studio Fitness</title>
+
+<%= stylesheet_link_tag    "application", media: "all" %>
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "jquery.imagemapster" %>
+
+<%= csrf_meta_tag %>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href="resources/stylesheets/style.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script language="JavaScript">
+	$(document).ready(function(){
+		$('#musculoffront').mapster({ 
+		    scaleMap: false,
+		    fillOpacity: 0.0,
+		    strokeOpacity: 0.0,
+		    stroke: false, 
+		    singleSelect: false,		    
+		    showToolTip: true,
+		    mapKey: 'data-key',
+		    mouseoutDelay: 3000,
+		    areas:  [
+		    		<%@evaluation.details.each do |detail| %>
+		    		{
+
+					    fillColor: '0000FF',
+						fillOpacity: 0.2,
+						strokeOpacity: 0.8,
+						stroke: true, 
+						showToolTip: true,
+		    			key: "<%= detail.area %>",
+		    			toolTip: "<h3 class='tooltip'><%= detail.title %></h3><p> <%= detail.description.truncate(25) %> </p>",
+		    			selected: true,
+		    			toolTipClose: 'tooltip-click',
+
+		    		},
+		    		<% end %>
+		            ]
+		}),
+		$('#musculofback').mapster({ 
+		    scaleMap: false,
+		    fillOpacity: 0.0,
+		    strokeOpacity: 0.0,
+		    stroke: false,
+		    singleSelect: false,
+		    showToolTip: true,
+		    mapKey: 'data-key',
+		    mouseoutDelay: 3000,
+		    areas:  [
+		    		<%@evaluation.details.each do |detail| %>
+		    		{
+
+					    fillColor: '0000FF',
+						fillOpacity: 0.2,
+						strokeOpacity: 0.8,
+						stroke: true, 
+						showToolTip: true,
+		    			key: "<%= detail.area %>",
+		    			toolTip: "<h3 class='tooltip'><%= detail.title %></h3><p> <%= detail.description.truncate(25) %> </p>",
+		    			selected: true,
+		    			toolTipClose: 'tooltip-click',
+
+		    		},
+		    		<% end %>
+		            ]
+		})
+	});
+</script>
+
+</head>
+
+<body>
+
+<div id="header">
+	<%= link_to image_tag("logo.png", :border => 0), root_path %>
+</div>
+
+<div id="menu">
+	<% if user_signed_in? %>
+		<%= !current_user.profile.blank? ? (link_to "Seu Perfil", user_profile_path(current_user), class: "menu") : (link_to "Home", root_path, class: "menu") %> <a class="menu"  href="#">Sua Saúde</a> <%= link_to "Avaliações Físicas", user_evaluations_path(current_user), class: "menu" %> <%= link_to "Avaliações Posturais", user_postural_assessments_path(current_user), class: "menu" %> <%= link_to "Exames", user_exams_path(current_user), class: "menu" %>
+	<% end %>
+	
+	<div class="login">
+	<% if user_signed_in? %>
+          Olá <strong><%= current_user.email %></strong>.
+          <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Registrar", new_user_registration_path %> |
+          <%= link_to "Entrar", new_user_session_path %>
+    <% end %>
+    </div>
+</div>
+
+
+<div id="conteiner">
+	<div id="content_left">
+		<div style="text-align:center; margin-left:auto; margin-right:auto;">
+			<img id="musculoffront" src="<%= image_path("MusculosFFront.jpg") %>" usemap="#map_muscffront" border="0" alt="" />
+			<map id="map_muscffront" name="map_muscffront">
+			<area data-key="1"  shape="poly" coords="161,205,196,205,209,211,222,208,249,210,271,205,250,199,237,189,234,174,234,155,221,160,209,160,199,159,190,150,185,148,189,167,186,183,174,197,150,203," href="/#" alt="Região do Pescoço" title="Região do Pescoço"   />
+			<area data-key="2" shape="poly" coords="57,446,49,444,45,452,36,456,23,461,13,474,31,470,14,505,18,511,35,490,24,520,31,523,45,494,40,524,47,526,55,495,58,519,63,515,65,492,69,474,68,464,67,452," href="/#" alt="Mão e Pulso Direito" title="Mão e Pulso Direito"   />
+			<area data-key="3" shape="poly" coords="355,455,356,466,359,479,365,490,362,516,369,518,371,496,381,523,387,520,381,495,395,520,400,515,392,490,406,508,410,501,398,481,394,468,405,478,409,474,401,463,392,455,381,450,375,444,367,444,360,448," href="/#" alt="Mão e Pulso Esquerdo" title="Mão e Pulso Esquerdo"   />
+			<area data-key="4" shape="poly" coords="355,451,350,438,331,406,310,368,303,357,313,349,324,359,324,348,327,340,328,332,338,348,346,364,353,386,361,409,372,433,367,446," href="/#" alt="Antebraço Esquerdo" title="Antebraço Esquerdo"   />
+			<area data-key="5" shape="poly" coords="61,445,50,444,58,427,66,406,73,385,75,368,84,350,95,329,100,350,115,341,125,338,118,363,109,382,96,404,83,427,71,455,72,449," href="/#" alt="Antebraço Direito" title="Antebraço Direito"   />
+			<area data-key="6" shape="poly" coords="102,348,95,330,103,311,107,290,112,273,112,249,114,231,125,214,144,204,159,206,174,208,162,219,145,228,139,230,141,245,144,268,144,292,136,317,128,331,117,344," href="/#" alt="Braço Superior e Ombro Direito" title="Braço Superior e Ombro Direito"   />
+			<area data-key="7" shape="poly" coords="321,348,308,343,299,339,294,329,289,315,280,299,279,290,279,280,275,269,275,261,279,248,283,237,282,228,270,222,255,217,249,211,258,208,268,204,277,204,292,206,303,218,308,237,309,257,309,270,315,290,319,304,326,323," href="/#" alt="Braço Superior e Ombro Esquerdo" title="Braço Superior e Ombro Esquerdo"   />
+			<area data-key="8" shape="poly" coords="138,230,143,243,145,260,161,258,177,260,187,269,188,277,197,277,205,284,210,294,216,287,227,280,234,280,238,273,242,265,249,260,258,260,267,260,276,259,278,250,280,240,284,232,274,227,266,223,254,217,241,212,229,209,222,208,213,212,205,208,195,206,181,211,165,220,156,223,150,226," href="/#" alt="Peitoral" title="Peitoral"   />
+			<area data-key="9" shape="poly" coords="201,287,190,298,178,304,175,320,177,350,176,371,175,394,178,419,183,442,195,468,208,478,220,476,229,467,234,452,238,438,242,420,242,401,243,391,246,373,245,351,246,335,249,318,248,304,235,299,224,293,221,286,211,295," href="/#" alt="Abdomen" title="Abdomen"   />
+			<area data-key="10" shape="poly" coords="135,428,135,418,138,406,142,398,152,410,162,420,172,434,184,448,197,467,207,480,209,493,205,508,192,497,182,482,173,470,165,456,157,447,148,437,144,432," href="/#" alt="Virilha e Pelve Direitas" title="Virilha e Pelve Direitas"   />
+			<area data-key="11"  shape="poly" coords="218,506,216,500,213,492,210,484,218,476,231,460,241,446,256,426,263,411,270,401,274,391,285,413,287,429,278,436,263,448,253,462,240,481,229,495," href="/#" alt="Virilha e Pelve Esquerdas" title="Virilha e Pelve Esquerdas"   />
+			<area data-key="12"  shape="poly" coords="136,415,133,427,131,446,129,469,126,490,127,516,129,539,134,570,136,599,138,622,150,633,152,619,151,601,159,609,166,601,170,611,169,626,175,640,184,640,188,631,191,618,191,600,193,580,195,555,199,536,204,519,204,506,189,491,180,480,168,467,156,450,147,434," href="/#" alt="Coxa Direita" title="Coxa Direita"   />
+			<area data-key="13"  shape="poly" coords="286,428,279,435,266,447,255,462,244,476,234,491,225,504,219,511,224,531,229,553,232,570,234,588,237,608,239,623,244,638,252,646,256,637,259,625,261,611,259,593,266,603,269,615,273,605,278,595,277,611,276,624,282,640,287,630,290,620,292,608,293,588,294,567,295,545,296,512,295,488,294,468,290,449," href="/#" alt="Coxa Esquerda" title="Coxa Esquerda"   />
+			<area data-key="14"  shape="poly" coords="138,635,145,651,152,631,151,611,159,619,166,602,169,632,175,645,181,642,185,636,186,654,184,666,181,677,175,689,165,694,158,707,151,696,147,685,147,671,141,673,135,680,137,665,137,652," href="/#" alt="Joelho Direito" title="Joelho Direito"   />
+			<area data-key="15"  shape="poly" coords="243,647,244,660,249,675,251,691,264,703,275,696,284,693,285,676,288,662,295,678,294,659,294,646,293,634,292,623,286,630,284,638,278,629,276,619,276,607,271,611,266,607,260,600,261,614,262,625,256,639,250,643,244,639," href="/#" alt="Joelho Esquerdo" title="Joelho Esquerdo"   />
+			<area data-key="16"  shape="poly" coords="133,690,137,678,144,669,147,689,148,703,150,715,155,720,165,716,173,706,179,699,177,718,177,732,175,744,170,760,166,777,161,791,157,807,154,822,149,830,141,830,132,830,130,820,127,805,126,792,126,780,126,772,126,763,125,751,125,740,126,728,128,712,130,700," href="/#" alt="Perna Direita" title="Perna Direita"   />
+			<area data-key="17"  shape="poly" coords="257,699,258,714,258,731,263,747,272,772,279,797,287,819,293,827,299,827,308,823,313,815,313,804,314,792,313,774,313,755,311,740,311,727,310,717,308,705,304,693,299,679,295,673,289,670,286,690,285,705,284,720,285,734,281,748,279,739,274,727,266,711," href="/#" alt="Perna Esquerda" title="Perna Esquerda"   />
+			<area data-key="18"  shape="poly" coords="129,839,125,847,125,856,125,865,119,873,114,889,113,897,121,902,131,902,141,896,138,904,146,903,150,895,151,889,150,882,151,875,153,869,153,859,153,856,153,846,150,839,141,839,137,839," href="/#" alt="Pé Direito" title="Pé Direito"   />
+			<area data-key="19"  shape="poly" coords="300,899,295,893,293,883,292,872,292,860,290,852,291,841,291,832,298,836,305,835,312,831,315,843,319,850,316,860,320,869,326,879,331,890,332,898,320,902,314,904,308,903," href="/#" alt="Pé Esquerdo" title="Pé Esquerdo"   />
+			<area shape="rect" coords="418,972,420,974" href="http://www.image-maps.com/index.php?aff=mapped_users_4201311082201387" alt="Image Map" title="Image Map" />
+			</map>
+		</div>
+	</div>
+	<div id="content_center">
+		<% flash.each do |name, msg| %>
+        	<%= content_tag :div, msg, id: "flash_#{name}" %>
+      	<% end %>
+
+    	<%= yield %>
+	</div>
+	<div id="content_right">
+		<div style="text-align:center; margin-left:auto; margin-right:auto;">
+			<img id="musculofback" src="<%= image_path("MusculosFBack.jpg") %>" usemap="#map_muscfback" border="0" alt="" />
+			<map id="map_muscfback" name="map_muscfback">
+				<area data-key="20"  shape="poly" coords="136,234,141,226,151,220,159,218,165,227,172,243,174,260,181,282,188,296,196,314,202,330,205,348,212,350,214,330,215,316,221,306,229,286,235,275,238,261,243,246,246,234,248,222,253,215,265,221,276,230,277,250,277,270,275,290,274,304,271,323,271,340,268,340,268,350,262,360,255,372,250,387,248,395,239,385,234,373,229,363,209,361,196,362,180,373,170,389,165,396,165,384,161,367,155,358,153,350,151,340,149,323,147,309,145,294,141,284,140,274,136,264,136,253," href="/#" alt="Dorso" title="Dorso"   />
+				<area data-key="21"  shape="poly" coords="81,347,85,361,87,378,95,377,99,370,108,363,112,352,104,352,95,350,89,341,86,335," href="/#" alt="Cotovelo Esquerdo" title="Cotovelo Esquerdo"   />
+				<area data-key="22"  shape="poly" coords="302,350,309,350,314,346,320,340,325,330,331,340,335,349,331,360,328,370,326,381,322,379,313,372,307,368,305,360," href="/#" alt="Cotovelo Direito" title="Cotovelo Direito"   />
+				<area data-key="23"  shape="poly" coords="126,847,124,855,119,862,125,872,125,882,121,889,130,898,141,899,145,892,148,881,149,869,151,861,149,849,144,857,141,866,135,865,132,859," href="/#" alt="Tornozelo Esquerdo" title="Tornozelo Esquerdo"   />
+				<area data-key="24"  shape="poly" coords="270,844,268,848,267,859,270,868,269,877,269,887,276,895,287,897,293,892,297,888,298,882,302,878,297,873,295,862,295,853,293,842,289,832,285,839,283,844,277,847," href="/#" alt="Tornozelo Direito" title="Tornozelo Direito"   />
+				<area shape="rect" coords="418,972,420,974" href="http://www.image-maps.com/index.php?aff=mapped_users_7201311082228206" alt="Image Map" title="Image Map" />
+			</map>
+		</div>
+    </div>
+</div>
+<div id="footer">
+	<p class="footer">© 2013 Pulsar Studio Fitness - Orgulhosamente desenvolvido por Octal SoftWorks</p>
+</div>
+
+
+</body>
+
+</html>
