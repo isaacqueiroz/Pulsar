@@ -1,0 +1,20 @@
+<h1>Sistema Viva Bem!</h1>
+
+<h2>Sua Saúde Hoje</h2>
+	<p class="justified">Aqui você verá uma comparação rápida entre seus exames disponíveis, com dicas importantes quanto aos seus resultados.</p>
+
+<% if @exams.size == 2 %>
+	<h3>Comparação de Exames</h3>
+	<p class="justified">Como você já possui ao menos 2 exames cadastrados conosco, podemos fazer uma comparação rápida quanto a sua evolução desde que você se juntou à nossa academia:</p>
+	<p><b>Exame mais atual: <%= @exams.last.dataexame%></b> | <b>Exame antigo: <%= @exams.first.dataexame%></b></p>
+	<p><b>Lembre-se: Esses são exames complementares e nunca substituirão a avaliação de um médico. Todas as informações abaixo devem ser encaradas como dicas e não como orientação médica adequada.</b></p><br>
+	<b>Colesterol</b>
+	<% if @colesterol_valor != 0 %>
+		<p>De acordo com seu último exame, seu <b>Colesterol Total</b> está <%= @colesterol_mensagem %> do valor recomendado de acordo com sua idade, com o valor de <%= @colesterol_total%>mg/dl. Você <%= @colesterol_diferenca > 0 ? "ganhou" : "perdeu" %> <%= @colesterol_diferenca.abs %>mg/dl de colesterol entre seus últimos exames!</p>
+	<% else %>
+		<p>Seu colesterol não pode ser calculado. Clique <%= link_to "aqui", new_user_profile_path(@user) %> para criar seu perfil para que tenhamos dados o suficiente para fazer os cálculos!</p>
+	<% end %>
+	<p class="justified">De acordo com a Sociedade Americada do Coração (AHA), os seus indices de HDL (o chamado colesterol bom) estão <%= @hdl_mensagem%>. Você <%= @hdl_comparativo > 0 ? "ganhou" : "perdeu" %> colesterol bom entre seus últimos exames, ficando com <%= @user.exams.last.hdl%>mg/dL em seu último exame!</p>
+<% else %>
+	
+<% end %>

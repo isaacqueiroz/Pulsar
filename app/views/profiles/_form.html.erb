@@ -39,11 +39,11 @@
 	</div>
 	<div class="field">
 		<%= f.label :birthdate, "Data de Nascimento" %>
-		<%= f.date_select(:birthdate, :order => [:day, :month, :year]) %>
+		<%= f.date_select(:birthdate, :order => [:day, :month, :year], :use_month_names => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], :start_year => Time.now.year - 100, :end_year => Time.now.year) %>
 	</div>
 	<div class="field">
 		<%= f.label :signdate, "Data de Inscrição na Pulsar Studio Fitness" %>
-		<%= f.date_select(:signdate, :order => [:day, :month, :year]) %>
+		<%= f.date_select(:signdate, :order => [:day, :month, :year], :use_month_names => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], :start_year => Time.now.year - 10, :end_year => Time.now.year) %>
 	</div>
 	<div class="actions">
 		<%= f.submit "Enviar", disable_with: 'Enviando...' %>
