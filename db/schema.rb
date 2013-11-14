@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131109044136) do
+ActiveRecord::Schema.define(:version => 20131114004841) do
 
   create_table "details", :force => true do |t|
     t.integer  "area"
@@ -103,13 +103,11 @@ ActiveRecord::Schema.define(:version => 20131109044136) do
   add_index "exams", ["user_id"], :name => "index_exams_on_user_id"
 
   create_table "goals", :force => true do |t|
-    t.string   "meta"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "evaluation_id"
+    t.string   "name"
   end
-
-  add_index "goals", ["user_id"], :name => "index_goals_on_user_id"
 
   create_table "postural_assessments", :force => true do |t|
     t.boolean  "cifose"

@@ -1,0 +1,36 @@
+<h1>Sistema Viva Bem!</h1>
+
+<h2>Sua Saúde Hoje</h2>
+	<p class="justified">Nesta seção você poderá criar metas e fazer uma comparação rápida entre a sua evolução nas últimas duas avaliações físicas</p>
+
+<% if @evaluations.size == 2 %>
+	<h3>Comparação de Avaliações</h3>
+	<p class="justified">Você já possui mais de uma avaliação conosco e, portanto, podemos realizar uma comparação rápida entre os seus resultados em uma e em outra avaliação:</p>
+	<p><b>Última Avaliação: <%= @evaluations.last.dataeval%></b> | <b>Penultima Avaliação: <%= @evaluations.first.dataeval%></b></p>
+	<p><b>Peso:</b> Você estava com <%= @evaluations.first.peso%>kg na primeira avaliação e <%= @evaluations.last.peso%>kg na última avaliação! <% if @evaluations.first.peso < @evaluations.last.peso %> Você conseguiu perder <%= @evaluations.first.peso.to_i-@evaluations.last.peso.to_i%>kg!<% end %></p>
+	<p><b>Percentual de Gordura:</b> <% if @evaluations.first.pgordura > @evaluations.last.pgordura %> Você conseguiu perder <%= @evaluations.first.pgordura-@evaluations.last.pgordura %> de percentual de gordura, ficando com <%= @evaluations.last.pgordura %>%!
+	<% else %> Você ganhou <%= @evaluations.last.pgordura-@evaluations.first.pgordura %> de percentual de gordura, ficando com <%= @evaluations.last.pgordura %>%, podemos melhorar isso!<% end %></p>
+	<p><b>Indice de Massa Corporal: </b>Você está <%= @imc_message %> Seu último IMC cálculado é <%= @evaluations.last.imc %>!</p>
+<% elsif @evaluations.size == 1%>
+	<h3>Última Avaliação</h3>
+	<p class="justified">Você não possui avaliações o suficiente para comparamos seu desempenho, mas aqui estão alguns dados interessantes sobre a sua última avaliação:</p>
+	<p><b>Última Avaliação: <%= @evaluations.last.dataeval%></b></p>
+	<p><b>Peso:</b> Você estava com <%= @evaluations.last.peso%> nesta avaliação.
+	<p><b>Percentual de Gordura:</b> Você tinha <%= @evaluations.first.pgordura %>% de gordura em seu corpo.
+	<p><b>Indice de Massa Corporal: </b>Você está <%= @imc_message %> Seu último IMC cálculado é <%= @evaluations.last.imc %>!</p>
+	<% else %>
+	<p class="justified">Você ainda não possui nenhuma avaliação para compararmos seus resultados! Fale com nossa equipe e agende uma avaliação, ou clique <%= link_to "aqui", new_user_evaluation_path(@user) %> para criar uma nova avaliação!</p>
+<% end %>
+
+<h3>Metas</h3>
+<p class="justified">Aqui você pode verificar suas últimas metas, prometidas em suas últimas avaliações! Utilize-as para guia-lo em seu treino.</p>
+<% if !@metas.blank? %>
+  <% @metas.each do |item| %>
+    <p><b>Meta:</b><%= item.name %></p>
+  <% end %>
+<% else %>
+  <p>Você ainda não possui nenhuma meta.</p>
+<% end %>
+
+
+

@@ -95,6 +95,15 @@
 
 	<%= link_to_add_fields "Adicionar Detalhe", f, :details %>
 
+	<h3>Metas</h3>
+
+	<p class="justified">Adicione aqui as metas do seu treino! Elas ajudarão tanto a estimulá-lo quanto a ajudar nossos profissionais a entenderem cada vez mais quais são seus principais objetivos na academia!</p>
+
+	<%= f.fields_for :goals do |builder| %>
+		<%= render 'goal_fields', f: builder %>
+	<% end %>
+	<%= link_to_add_fields "Adicionar Meta", f, :goals %>
+
 	<div class="actions">
 		<%= f.submit "Enviar", disable_with: 'Enviando...' %>
 	</div>

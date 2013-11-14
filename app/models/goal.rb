@@ -1,4 +1,4 @@
 class Goal < ActiveRecord::Base
-  belongs_to :user
-  attr_accessible :meta
+  attr_accessible :name
+  belongs_to :evaluation
 end
