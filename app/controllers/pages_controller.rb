@@ -28,7 +28,7 @@ class PagesController < ApplicationController
   def exams
     @user = current_user
     @exams = @user.exams.last(2)
-    if !@user.profile.blank?
+    if !@user.profile.blank? && !@exams.blank?
       @idade = Date.today.year - @user.profile.birthdate.year
       @idade -= 1 if Date.today <  @user.profile.birthdate + @idade.year
       @colesterol_valor = case @idade
@@ -58,7 +58,19 @@ class PagesController < ApplicationController
     else
       @colesterol_valor = 0
       @hdl_mensagem = "não calculados"
-    end      
-      
+    end
+  end
+
+  def details
+    @details = Detail.find_all_by_evaluation_id(current_user.evaluations)    
+    if @user.profile.sex.blank?
+        render layout: "new_evaluation_m"
+    else
+      if @user.profile.sex == "masc"
+        render layout: "new_evaluation_m"
+      else
+        render layout: "new_evaluation_f"
+      end
+    end
   end
 end
