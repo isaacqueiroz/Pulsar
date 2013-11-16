@@ -30,7 +30,7 @@ class PosturalAssessmentsController < ApplicationController
 
 	def index
 		@user = User.find(params[:user_id])
-		@postural_assessment = @user.postural_assessments.all	
+		@postural_assessments = @user.postural_assessments.all	
 	end
 
 	def update

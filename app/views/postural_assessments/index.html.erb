@@ -1,0 +1,12 @@
+<h1>Lista de Avaliações Posturais</h1>
+<p class="justified">Aqui estão arquivadas todas as avaliações posturais cadastradas em nosso sistema. Arquivadas, você poderá sempre conferir sua condição física em avaliações anteriores.</p>
+<% for postural_assessment in @postural_assessments %>
+	<p>
+		<b>Data da Avaliação:</b>
+		<%= postural_assessment.dataeval %>
+	</p>
+	<p> 
+		<%= link_to 'Leia Mais...', user_postural_assessment_path(@user,postural_assessment)%> | <%= link_to 'Editar', edit_user_postural_assessment_path(@user,postural_assessment)%>
+	</p>
+<% end %>
+<%= link_to 'Nova Avaliação Física', new_user_postural_assessment_path(@user) %>

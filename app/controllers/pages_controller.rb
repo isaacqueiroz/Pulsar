@@ -77,6 +77,12 @@ class PagesController < ApplicationController
     end
   end
 
+  def postural
+    @user = current_user
+    @postural_assessment = @user.postural_assessment.find.last
+    
+  end
+
   private
   def detail_message(item)
     if @user.profile.blank? || @user.profile.sex == "masc"

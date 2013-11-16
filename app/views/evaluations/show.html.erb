@@ -103,5 +103,5 @@
 	Esquerdo: <%= @evaluation.mbicepse %>cm
 </p>
 
-<%= link_to 'Editar', edit_user_evaluation_path(@evaluation)  %>
-<%= link_to 'Voltar', user_evaluations_path(@evaluation.user_id) %>
+<%= link_to 'Editar', edit_user_evaluation_path(@user,@evaluation)  %>
+<%= link_to 'Voltar', user_evaluations_path(@user) %>
