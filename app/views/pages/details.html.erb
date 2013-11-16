@@ -1,0 +1,18 @@
+<h1>Sistema Viva Bem!</h1>
+
+<h2>Detalhes do Seu Corpo</h2>
+	<p class="justified">Aqui estão registradas suas lesões e detalhes crônicos, caracteristicos do seu corpo.</p>
+	<p class="justified">Em nosso sistema, chamamos de "Detalhes" todas as lesões e detalhes dignos de observação notados em cada avaliação.</p>
+	<p class="justified">Cores <b>claras</b> correspondem a detalhes <b>crônicos</b>, ou seja, mais persistentes, que estarão presentes por mais tempo, enquanto detalhes mais <b>escuros</b> representam detalhes <b>imediatos</b>, detectados em avaliações individuais e que, com o tempo, desaparecerão ou serão substituídos por outros detalhes.</p>
+	<h3>Últimas Marcações</h3>
+	<p class="justified">Essa é uma lista rápida dos últimos detalhes cadastrados no nosso sistema:</p>
+	<% if !@details_all.blank? %>
+	  <% for item in @details_all %>
+	    <b>Área do Detalhe:</b> <%= detail_message(item.area) %> <br>
+	    <b><%= item.title %></b> <br>
+	    <p><b>Observações: </b><%= item.description %></p>
+	    <p>Trata-se de <%= item.tipo == 1 ? "uma lesão" : "uma marcação de detalhe"%> <%= (item.cronico && (item.tipo == 1)) ? "crônica" : "" %> <%= (item.cronico && !(item.tipo == 1)) ? "crônico" : "" %></p> <br>
+	  <% end %>
+	<% else %>
+		nope
+	<% end %>

@@ -1,11 +1,21 @@
 <fieldset>
 	<%= f.label :area, "Área do detalhe:" %>
-	<%= f.text_field :area %><br />
+	<% if @user.profile.sex.blank? && @user.profile.sex == "masc" %>
+		<%= f.select :area, [["Pescoço", 1], ["Mão Direita", 2],["Mão Esquerda", 3],["Punho e Antebraço Direito", 4],["Punho e Antebraço Esquerdo", 5],["Braço Superior e Ombro Esquerdo", 6],["Braço Superior e Ombro Direito", 7],["Abdomen", 8],["Pelve e Virilha Direita", 9],["Pelve e Virilha Esquerda", 10],["Coxa Direita", 11],["Coxa Esquerda", 12],["Joelho Direito", 13],["Joelho Esquerdo", 14],["Perna Direita", 15],["Perna Esquerda", 16],["Pé Direito", 17],["Pé Esquerdo", 18],["Dorso", 19],["Cotovelo Esquerdo", 20],["Cotovelo Direito", 21],["Tornozelo Esquerdo", 22],["Tornozelo Direito", 23]]%>		
+	<% else %>
+		<%= f.select :area, [["Pescoço", 1], ["Mão e Pulso Direito", 2],["Mão e Pulso Esquerdo", 3],["Antebraço Esquerdo", 4],["Antebraço Direito", 5],["Braço Superior e Ombro Direito", 6],["Braço Superior e Ombro Esquerdo", 7],["Peitoral", 8],["Abdomen", 9],["Virilha e Pelve Direitas", 10],["Virilha e Pelve Esquerdas", 11],["Coxa Direita", 12],["Coxa Esquerda", 13],["Joelho Direito", 14],["Joelho Esquerdo", 15],["Perna Direita", 16],["Perna Esquerda", 17],["Pé Direito", 18],["Pé Esquerdo", 19],["Dorso", 20],["Cotovelo Esquerdo", 21],["Cotovelo Direito", 22],["Tornozelo Esquerdo", 23], ["Tornozelo Direito", 24]]%>		
+	<% end %>
+	<br>
 	<%= f.label :title, "Título do detalhe:" %>
 	<%= f.text_field :title %> <br />
 	<%= f.label :description, "Descrição do detalhe:"%> <br />
 	<%= f.text_area :description, cols: 50, rows: 2 %>
 	<%= f.hidden_field :_destroy %><br />
+	<p>Selecione o tipo de detalhe que você deseja adicionar:</p>
+	<%= f.select :tipo, [["Lesão", 1], ["Detalhe", 2]]%>
+	<p>Marque a caixa abaixo para fazer um detalhe crônico (que persistirá sempre na ficha do aluno):</p>
+	<%= f.label :cronico, "Crônico:" %>
+	<%= f.check_box :cronico %><br>
 	<%= link_to "Remover", '#', class: "remove_fields" %>
 </fieldset>
 <br />

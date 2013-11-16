@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131114004841) do
+ActiveRecord::Schema.define(:version => 20131115222753) do
 
   create_table "details", :force => true do |t|
     t.integer  "area"
     t.string   "title"
     t.text     "description"
     t.integer  "evaluation_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "tipo",          :default => 0
+    t.boolean  "cronico",       :default => true
   end
 
   add_index "details", ["evaluation_id"], :name => "index_details_on_evaluation_id"

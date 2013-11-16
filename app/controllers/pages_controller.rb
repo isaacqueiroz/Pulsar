@@ -62,15 +62,130 @@ class PagesController < ApplicationController
   end
 
   def details
-    @details = Detail.find_all_by_evaluation_id(current_user.evaluations)    
+    @user = current_user
+    @details_all = Detail.where(evaluation_id: @user.evaluations.all).last(3)
+    @cronicos = Detail.where(cronico: true)
+    @details = @details_all - @cronicos
     if @user.profile.sex.blank?
-        render layout: "new_evaluation_m"
+        render layout: "show_details_m"
     else
       if @user.profile.sex == "masc"
-        render layout: "new_evaluation_m"
+        render layout: "show_details_m"
       else
-        render layout: "new_evaluation_f"
+        render layout: "show_details_f"
       end
     end
   end
+
+  private
+  def detail_message(item)
+    if @user.profile.blank? || @user.profile.sex == "masc"
+      message = case item
+        when 1
+          "Pescoço"
+        when 2
+          "Mão Direita"
+        when 3
+          "Mão Esquerda"
+        when 4
+          "Punho e Antebraço Direito"
+        when 5
+          "Punho e Antebraço Esquerdo"
+        when 6
+          "Braço Superior e Ombro Esquerdo"
+        when 7
+          "Braço Superior e Ombro Direito"
+        when 8
+          "Abdomen"
+        when 9
+          "Pelve e Virilha Direita"
+        when 10
+          "Pelve e Virilha Esquerda"
+        when 11
+          "Coxa Direita"
+        when 12
+          "Coxa Esquerda"
+        when 13
+          "Joelho Direito"
+        when 14
+          "Joelho Esquerdo"
+        when 15
+          "Perna Direita"
+        when 16
+          "Perna Esquerda"
+        when 17
+          "Pé Direito"
+        when 18
+          "Pé Esquerdo"
+        when 19
+          "Dorso"
+        when 20
+          "Cotovelo Esquerdo"
+        when 21
+          "Cotovelo Direito"
+        when 22
+          "Tornozelo Esquerdo"
+        when 23
+          "Tornozelo Direito"      
+        else
+          "Não Informado"
+      end
+    else
+      message = case item
+        when 1 
+          "Pescoço"
+        when 2
+          "Mão e Pulso Direito"
+        when 3
+          "Mão e Pulso Esquerdo"
+        when 4
+          "Antebraço Esquerdo"
+        when 5
+          "Antebraço Direito"
+        when 6
+          "Braço Superior e Ombro Direito"
+        when 7
+          "Braço Superior e Ombro Esquerdo"
+        when 8
+          "Peitoral"
+        when 9
+          "Abdomen"
+        when 10
+          "Virilha e Pelve Direitas"
+        when 11
+          "Virilha e Pelve Esquerdas"
+        when 12
+          "Coxa Direita"
+        when 13
+          "Coxa Esquerda"
+        when 14
+          "Joelho Direito"
+        when 15
+          "Joelho Esquerdo"
+        when 16
+          "Perna Direita"
+        when 17
+          "Perna Esquerda"
+        when 18
+          "Pé Direito"
+        when 19
+          "Pé Esquerdo"
+        when 20
+          "Dorso"
+        when 21
+          "Cotovelo Esquerdo"
+        when 22
+          "Cotovelo Direito"
+        when 23
+          "Tornozelo Esquerdo"
+        when 24
+          "Tornozelo Direito"
+        else
+          "Não Informado"
+      end   
+    end
+    return message
+  end
+
+  helper_method :detail_message
 end
