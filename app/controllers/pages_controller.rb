@@ -79,8 +79,8 @@ class PagesController < ApplicationController
 
   def postural
     @user = current_user
-    @postural_assessment = @user.postural_assessment.find.last
-    
+    @postural_assessment = @user.postural_assessments.last
+    render layout: "postural"
   end
 
   private

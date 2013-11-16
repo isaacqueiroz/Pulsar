@@ -1,0 +1,33 @@
+<h1>Sistema Viva Bem!</h1>
+
+<h2>Sua Postura</h2>
+<p class="justified">Aqui você verá detalhes relacionados à sua última avaliação postural, com uma rápida análise e descrição de eventuais problemas posturais.</p>
+
+<p>Foram marcados os seguintes problemas posturais:</p>
+
+<% if !@postural_assessment.blank? %>
+	<% if @postural_assessment.cifose %>
+		<h3>Alteração de Cifose</h3>
+		<p><%= image_tag("Cifose.jpg", alt: "Cifose", class: "postura") %><br> <br> Alterações na cifose da coluna levam a uma queda dos ombros e, em casos mais extremos, no que é chamado de corcundismo. Com a ajuda de exercícios específicos, é possível reduzir a alteração e melhorar tanto a postura quanto a qualidade de vida do paciente.</p>
+
+	<% end %><br><br><br><br>
+	<% if @postural_assessment.lordose %>
+		<h3>Alteração de Lordose</h3>
+		<p><%= image_tag("Lordose.jpg", alt: "Lordose", class: "postura") %><br> <br> Alterações significativas na curva lordótica da coluna podem tornar as nadegas mais proeminentes e, ao ficar deitado de costas, o aluno perceberá a existência de algum espaço entre sua coluna e o chão. Problemas mais graves geralmente são tratados na infância, mas desvios menores não são incomuns entre adultos.</p><br><br>
+	<% end %>
+	<% if @postural_assessment.escoliose %>
+		<h3>Alteração de Escoliose</h3>
+		<p><%= image_tag("Escoliose.jpg", alt: "Escoliose", class: "postura") %><br> <br> Uma alteração relacionada à lordose implica em um desvio lateral na coluna (notado tanto na visão frontal quanto das costas do aluno), resultando a grosso modo em um formato de "S" na coluna.</p>
+	<% end %><br><br><br><br><br><br>
+	<% if @postural_assessment.artrose %>
+		<h3>Artrose</h3>
+		<p><%= image_tag("artrose.jpg", alt: "Artrose", class: "postura") %><br> <br> A figura ao lado mostra uma comparação entre uma coluna saudável (marcada em azul) e uma coluna com artrose (em vermelho): O desgaste da cartilagem da região leva a inflamação do tecido, o que causa atrito e dores na coluna.</p>
+	<% end %><br><br><br><br>
+	<% if @postural_assessment.hernia %>
+		<h3>Hérnia de Disco</h3>
+		<p><%= image_tag("Hernia.jpg", alt: "Hérnia", class: "postura") %>A hérnia de disco é caracterizada pelo deslocamento ou lesão de um ou mais discos (marcado em azul) da coluna. Pode diminuir a flexibilidade da coluna e causar muita dor.</p>
+	<% end %><br><br>
+
+<% else %>
+  
+<% end %>

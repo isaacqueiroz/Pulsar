@@ -7,6 +7,7 @@ Pulsar::Application.routes.draw do
   match '/sumary' => 'pages#sumary'
   match '/exams' => 'pages#exams'
   match '/details' => 'pages#details'
+  match '/postural' => 'pages#postural'
   match '/userpanel/:user_id' => 'pages#userpanel'
 
   # The priority is based upon order of creation:
