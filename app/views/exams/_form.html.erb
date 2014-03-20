@@ -14,153 +14,79 @@
   <%= f.label :dataexame, "Data da Avaliação:" %> <br>
     <%= f.date_select(:dataexame, :order => [:day, :month, :year], :use_month_names => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], :start_year => Time.now.year - 6, :end_year => Time.now.year) %>
 
-  <div class="field">
-    <%= f.label :hdl %><br />
+  <div class="group">
+    <h3>Colesterol</h3>
+    <%= f.label :hdl, "HDL: " %>
     <%= f.number_field :hdl %>
-  </div>
-  <div class="field">
-    <%= f.label :ldl %><br />
+    <%= f.label :ldl, "LDL: " %>
     <%= f.number_field :ldl %>
-  </div>
-  <div class="field">
-    <%= f.label :vldl %><br />
+    <%= f.label :vldl, "VLDL: " %>
     <%= f.number_field :vldl %>
   </div>
-  <div class="field">
-    <%= f.label :tgo %><br />
+  <div class="group">
+    <h3>Hepatograma</h3>
+    <%= f.label :tgo, "TGO (AST): " %>
     <%= f.number_field :tgo %>
-  </div>
-  <div class="field">
-    <%= f.label :tgp %><br />
+    <%= f.label :tgp, "TGP (ALT): " %>
     <%= f.number_field :tgp %>
-  </div>
-  <div class="field">
-    <%= f.label :ggt %><br />
+    <%= f.label :ggt, "Gama GT: " %>
     <%= f.number_field :ggt %>
-  </div>
-  <div class="field">
-    <%= f.label :fosfatase %><br />
+    <%= f.label :fosfatase, "Fosfatase Alcalina: " %>
     <%= f.number_field :fosfatase %>
-  </div>
-  <div class="field">
-    <%= f.label :bilirrubina %><br />
+    <%= f.label :bilirrubina, "Bilirrubinas: " %>
     <%= f.number_field :bilirrubina %>
-  </div>
-  <div class="field">
-    <%= f.label :acidourico %><br />
-    <%= f.number_field :acidourico %>
-  </div>
-  <div class="field">
-    <%= f.label :ureia %><br />
-    <%= f.number_field :ureia %>
-  </div>
-  <div class="field">
-    <%= f.label :creatina %><br />
-    <%= f.number_field :creatina %>
-  </div>
-  <div class="field">
-    <%= f.label :cknac %><br />
-    <%= f.number_field :cknac %>
-  </div>
-  <div class="field">
-    <%= f.label :glicose %><br />
+    <%= f.label :glicose %>
     <%= f.number_field :glicose %>
   </div>
-  <div class="field">
-    <%= f.label :tsh %><br />
+  <div class="group">
+    <h3>Renais</h3>
+    <%= f.label :acidourico, "Ácido Úrico: " %>
+    <%= f.number_field :acidourico %>
+    <%= f.label :ureia, "Uréia: " %>
+    <%= f.number_field :ureia %>
+    <%= f.label :creatina, "Creatinina: " %>
+    <%= f.number_field :creatina %>
+    <%= f.label :cknac, "Creatina Kinase (CK-NAC): " %>
+    <%= f.number_field :cknac %>
+  </div>
+  <div class="group">
+    <h3>Hormonais</h3>
+    <%= f.label :tsh, "TSH: " %>
     <%= f.number_field :tsh %>
-  </div>
-  <div class="field">
-    <%= f.label :t4 %><br />
+    <%= f.label :t4, "T4: " %>
     <%= f.number_field :t4 %>
-  </div>
-  <div class="field">
-    <%= f.label :fsh %><br />
+    <%= f.label :fsh, "FSH: " %>
     <%= f.number_field :fsh %>
-  </div>
-  <div class="field">
-    <%= f.label :prolactina %><br />
+    <%= f.label :prolactina, "Prolactina: " %>
     <%= f.number_field :prolactina %>
-  </div>
-  <div class="field">
-    <%= f.label :testosterona %><br />
+    <%= f.label :testosterona, "Testosterona: " %>
     <%= f.number_field :testosterona %>
-  </div>
-  <div class="field">
-    <%= f.label :estradiol %><br />
+    <%= f.label :estradiol, "Estradiol: " %>
     <%= f.number_field :estradiol %>
-  </div>
-  <div class="field">
-    <%= f.label :lh %><br />
+    <%= f.label :lh, "LH: " %>
     <%= f.number_field :lh %>
-  </div>
-  <div class="field">
-    <%= f.label :lpo %><br />
+    <%= f.label :lpo, "TPO: " %>
     <%= f.number_field :lpo %>
-  </div>
-  <div class="field">
-    <%= f.label :t3 %><br />
-    <%= f.number_field :t3 %>
-  </div>
-  <div class="field">
-    <%= f.label :lipoprot %><br />
+    <%= f.label :t3, "T3: " %>
+    <%= f.number_field :t3 %>  
+    <%= f.label :lipoprot, "Lipoproteína: " %>
     <%= f.number_field :lipoprot %>
-  </div>
-  <div class="field">
-    <%= f.label :androst %><br />
-    <%= f.number_field :androst %>
-  </div>
-  <div class="field">
-    <%= f.label :cortisol %><br />
+    <%= f.label :androst, "Androstenediona: " %>
+    <%= f.number_field :androst %>  
+    <%= f.label :cortisol, "Cortisol: " %>
     <%= f.number_field :cortisol %>
-  </div>
-  <div class="field">
-    <%= f.label :homocist %><br />
+    <%= f.label :homocist, "Homocisteína: " %>
     <%= f.number_field :homocist %>
-  </div>
-  <div class="field">
-    <%= f.label :shbg %><br />
-    <%= f.number_field :shbg %>
-  </div>
-  <div class="field">
-    <%= f.label :teslivre %><br />
+    <%= f.label :shbg, "SHBG: " %>
+    <%= f.number_field :shbg %>  
+    <%= f.label :teslivre, "Testosterona Livre: " %>
     <%= f.number_field :teslivre %>
-  </div>
-  <div class="field">
-    <%= f.label :insulina %><br />
+    <%= f.label :insulina, "Insulina: " %>
     <%= f.number_field :insulina %>
   </div>
-  <div class="field">
-    <%= f.label :densidade %><br />
-    <%= f.number_field :densidade %>
-  </div>
-  <div class="field">
-    <%= f.label :ph %><br />
-    <%= f.number_field :ph %>
-  </div>
-  <div class="field">
-    <%= f.label :sedimento %><br />
-    <%= f.number_field :sedimento %>
-  </div>
-  <div class="field">
-    <%= f.label :soridutoras %><br />
-    <%= f.number_field :soridutoras %>
-  </div>
-  <div class="field">
-    <%= f.label :catomico %><br />
-    <%= f.number_field :catomico %>
-  </div>
-  <div class="field">
-    <%= f.label :hemoglobina %><br />
-    <%= f.number_field :hemoglobina %>
-  </div>
-  <div class="field">
-    <%= f.label :cristais %><br />
-    <%= f.number_field :cristais %>
-  </div>
-  <div class="field">
-    <%= f.label :obs %><br />
-    <%= f.text_area:obs %>
+  <div class="group">
+    <%= f.label :obs, "Observações: " %><br />
+    <%= f.text_area :obs, size: "40x5" %>
   </div>
   <div class="actions">
     <%= f.submit "Enviar", disable_with: "Enviando..." %>

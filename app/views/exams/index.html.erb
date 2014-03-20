@@ -1,30 +1,13 @@
-<h1>Listing exams</h1>
+<h1>Lista de Exames</h1>
 
 <table>
   <tr>
-    <th>Hdl</th>
-    <th>Ldl</th>
-    <th>Vldl</th>
-    <th>Tgo</th>
-    <th>Tgp</th>
-    <th>Ggt</th>
-    <th>Fosfatase</th>
-
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Data do Exame</th>
   </tr>
 
 <% @exams.each do |exam| %>
   <tr>
-    <td><%= exam.hdl %></td>
-    <td><%= exam.ldl %></td>
-    <td><%= exam.vldl %></td>
-    <td><%= exam.tgo %></td>
-    <td><%= exam.tgp %></td>
-    <td><%= exam.ggt %></td>
-    <td><%= exam.fosfatase %></td>
-
+    <td><%= exam.dataexame.to_formatted_s(:short) %></td>
     <td><%= link_to 'Ler Exame', [@user,exam] %></td>
     <td><%= link_to 'Editar Exame', edit_user_exam_path(@user,exam) %></td>
     <td><%= link_to 'Excluir Exame', [@user,exam], method: :delete, data: { confirm: 'Tem certeza?' } %></td>

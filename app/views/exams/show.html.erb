@@ -1,185 +1,79 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Hdl:</b>
-  <%= @exam.hdl %>
-</p>
-
-<p>
-  <b>Ldl:</b>
-  <%= @exam.ldl %>
-</p>
-
-<p>
-  <b>Vldl:</b>
-  <%= @exam.vldl %>
-</p>
-
-<p>
-  <b>Tgo:</b>
-  <%= @exam.tgo %>
-</p>
-
-<p>
-  <b>Tgp:</b>
-  <%= @exam.tgp %>
-</p>
-
-<p>
-  <b>Ggt:</b>
-  <%= @exam.ggt %>
-</p>
-
-<p>
-  <b>Fosfatase:</b>
-  <%= @exam.fosfatase %>
-</p>
-
-<p>
-  <b>Bilirrubina:</b>
-  <%= @exam.bilirrubina %>
-</p>
-
-<p>
-  <b>Acidourico:</b>
-  <%= @exam.acidourico %>
-</p>
-
-<p>
-  <b>Ureia:</b>
-  <%= @exam.ureia %>
-</p>
-
-<p>
-  <b>Creatina:</b>
-  <%= @exam.creatina %>
-</p>
-
-<p>
-  <b>Cknac:</b>
-  <%= @exam.cknac %>
-</p>
-
-<p>
-  <b>Glicose:</b>
-  <%= @exam.glicose %>
-</p>
-
-<p>
-  <b>Tsh:</b>
-  <%= @exam.tsh %>
-</p>
-
-<p>
-  <b>T4:</b>
-  <%= @exam.t4 %>
-</p>
-
-<p>
-  <b>Fsh:</b>
-  <%= @exam.fsh %>
-</p>
-
-<p>
-  <b>Prolactina:</b>
+<div class="group">
+  <h3>Colesterol</h3>
+  <b>HDL: </b>
+  <%= @exam.hdl %> mg/dL
+  <b>LDL: </b>
+  <%= @exam.ldl %> mg/dL
+  <b>VLDL: </b>
+  <%= @exam.vldl %> mg/dL
+</div>
+<div class="group">
+  <h3>Hepatograma</h3>
+  <b>TGO (AST): </b>
+  <%= @exam.tgo %> UK
+  <b>TGP (ALT): </b> 
+  <%= @exam.tgp %> UK
+  <b>Gama GT: </b>
+  <%= @exam.ggt %> u/l
+  <b>Fosfatase Alcalina: </b>
+  <%= @exam.fosfatase %> u/l
+  <b>Bilirrubinas: </b>
+  <%= @exam.bilirrubina %> mg/dL
+  <b>Glicose </b>
+  <%= @exam.glicose %> mg/dL
+</div>
+<div class="group">
+  <h3>Renais</h3>
+  <b>Ácido Úrico: </b>
+  <%=@exam.acidourico %> mg/dL
+  <b>Uréia: </b> 
+  <%=@exam.ureia %> mg/dL
+  <b>Creatinina: </b> 
+  <%=@exam.creatina %> mg/dL
+  <b>Creatina Kinase (CK-NAC): </b>
+  <%=@exam.cknac %> U/L
+</div>
+<div class="group">
+  <h3>Hormonais</h3>
+  <b>TSH: </b>
+  <%= @exam.tsh %> mcUI/mL
+  <b>T4: </b>
+  <%= @exam.t4 %> mcg/dL
+  <b>FSH: </b>
+  <%= @exam.fsh %> U/L
+  <b>Prolactina: </b>
   <%= @exam.prolactina %>
-</p>
-
-<p>
-  <b>Testosterona:</b>
+  <b>Testosterona: </b> U/L
   <%= @exam.testosterona %>
-</p>
-
-<p>
-  <b>Estradiol:</b>
+  <b>Estradiol: </b> U/L
   <%= @exam.estradiol %>
-</p>
-
-<p>
-  <b>Lh:</b>
+  <b>LH: </b> U/L
   <%= @exam.lh %>
-</p>
-
-<p>
-  <b>Lpo:</b>
+  <b>TPO: </b> U/L
   <%= @exam.lpo %>
-</p>
-
-<p>
-  <b>T3:</b>
-  <%= @exam.t3 %>
-</p>
-
-<p>
-  <b>Lipoprot:</b>
+  <b>T3: </b> U/L
+  <%= @exam.t3 %>  
+  <b>Lipoproteína: </b> U/L
   <%= @exam.lipoprot %>
-</p>
-
-<p>
-  <b>Androst:</b>
-  <%= @exam.androst %>
-</p>
-
-<p>
-  <b>Cortisol:</b>
+  <b>Androstenediona: </b> U/L
+  <%= @exam.androst %>  
+  <b>Cortisol: </b> U/L
   <%= @exam.cortisol %>
-</p>
-
-<p>
-  <b>Homocist:</b>
+  <b>Homocisteína: </b> U/L
   <%= @exam.homocist %>
-</p>
-
-<p>
-  <b>Shbg:</b>
-  <%= @exam.shbg %>
-</p>
-
-<p>
-  <b>Teslivre:</b>
+  <b>SHBG: </b> U/L
+  <%= @exam.shbg %>  
+  <b>Testoserona Livre: </b> U/L
   <%= @exam.teslivre %>
-</p>
-
-<p>
-  <b>Insulina:</b>
+  <b>Insulina: </b> U/L
   <%= @exam.insulina %>
-</p>
-
-<p>
-  <b>Densidade:</b>
-  <%= @exam.densidade %>
-</p>
-
-<p>
-  <b>Ph:</b>
-  <%= @exam.ph %>
-</p>
-
-<p>
-  <b>Sedimento:</b>
-  <%= @exam.sedimento %>
-</p>
-
-<p>
-  <b>Soridutoras:</b>
-  <%= @exam.soridutoras %>
-</p>
-
-<p>
-  <b>Catomico:</b>
-  <%= @exam.catomico %>
-</p>
-
-<p>
-  <b>Hemoglobina:</b>
-  <%= @exam.hemoglobina %>
-</p>
-
-<p>
-  <b>Cristais:</b>
-  <%= @exam.cristais %>
-</p>
-
+</div>
+<div class="group">
+  <h3>Observações: </h3>
+  <%= @exam.obs %>
+</div>
 
 <%= link_to 'Editar', edit_user_exam_path(@user,@exam) %> |
 <%= link_to 'Voltar', user_exams_path(@user) %>
