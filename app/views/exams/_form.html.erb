@@ -10,8 +10,8 @@
       </ul>
     </div>
   <% end %>
-
-  <%= f.label :dataexame, "Data da Avaliação:" %> <br>
+  <p>Coloque a data em que o exame foi realizado:</p>
+  <%= f.label :dataexame, "Data do Exame:" %> <br>
     <%= f.date_select(:dataexame, :order => [:day, :month, :year], :use_month_names => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], :start_year => Time.now.year - 6, :end_year => Time.now.year) %>
 
   <div class="group">

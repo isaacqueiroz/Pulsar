@@ -19,15 +19,15 @@
 
 </head>
 
-<body>
+<body style="background:url(image_tag('logo.png', :border => 0)); background-repeat:repeat ">
 
 <div id="header">
-	<%= link_to image_tag("logo.png", :border => 0), root_path %>
+	<%= link_to image_tag("logo.png", :border => 0), root_path %> <sub>Beta 0.830</sub>
 </div>
 
 <div id="menu">
 	<% if user_signed_in? %>
-		<%= !current_user.profile.blank? ? (link_to "Seu Perfil", user_profile_path(current_user), class: "menu") : (link_to "Home", root_path, class: "menu") %> <a class="menu"  href="#">Sua Saúde</a> <%= link_to "Avaliações Físicas", user_evaluations_path(current_user), class: "menu" %> <%= link_to "Avaliações Posturais", user_postural_assessments_path(current_user), class: "menu" %> <%= link_to "Exames", user_exams_path(current_user), class: "menu" %>
+		<%= !current_user.profile.blank? ? (link_to "Seu Perfil", user_profile_path(current_user), class: "menu") : (link_to "Home", root_path, class: "menu") %> <%= link_to "Avaliações Físicas", user_evaluations_path(current_user), class: "menu" %> <%= link_to "Exames", user_exams_path(current_user), class: "menu" %>
 	<% end %>
 	
 	<div class="login">
@@ -35,8 +35,7 @@
           Olá <strong><%= current_user.email %></strong>.
           <%= link_to "Sair", destroy_user_session_path, method: :delete %>
         <% else %>
-          <%= link_to "Registrar", new_user_registration_path %> |
-          <%= link_to "Entrar", new_user_session_path %>
+
     <% end %>
     </div>
 </div>
@@ -52,7 +51,7 @@
 
 </div>
 <div id="footer">
-	<p class="footer">© 2013 Pulsar Studio Fitness - Orgulhosamente desenvolvido por Octal SoftWorks</p>
+	<p class="footer">© 2013-2014 Pulsar Studio Fitness - Powered By Octal SoftWorks</p>
 </div>
 
 

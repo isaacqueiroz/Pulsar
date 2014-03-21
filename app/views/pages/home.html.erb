@@ -11,10 +11,8 @@
 		<p>Seu perfil está completo!</p>
 		<p><%= link_to 'Veja', user_profile_path(current_user) %> ou <%= link_to 'edite', edit_user_profile_path(current_user) %> seu Perfil!</p>
 	<% end %>
-	<h2>Painel do Usuário</h2>
-	<h3>Avaliações físicas:</h3>
-	<p><%= link_to 'Todas as Avaliações...', user_evaluations_path(current_user) %></p>
-	<p><%= link_to 'Nova Avaliação...', new_user_evaluation_path(current_user) %></p>
 <% else %>
 	<h2>Bem Vindo! Você não está logado!</h2>
+	<%= link_to "Registrar", new_user_registration_path %> |
+	<%= link_to "Entrar", new_user_session_path %>
 <% end %>

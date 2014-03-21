@@ -1,5 +1,5 @@
 body{
-	background-image: url('../images/clean_textile.png');
+	background-image: url(ticks.png);
 	background-repeat: repeat;
 }
 
@@ -8,7 +8,7 @@ div#container_login {
 	width: 332px;
 	height: 437px;
 	background-color: white;
-	background-image: url('../images/login_bg.png');
+	background-image: url(login_bg.png);
 
 	position: absolute;
 	top:0;
@@ -31,9 +31,9 @@ div#content_login {
 }
 
 div#conteiner{
-	width: 1280px;
-	margin-left: auto;
-	margin-right: auto;
+	width: auto;
+	margin-left: 40px;
+	margin-right: 40px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	background-color: white;
@@ -58,12 +58,12 @@ img.login_button{
 
 div#menu{
 	font-family: 'Verdana';
-	width: 1230px;
+	width: auto;
 	font-size: 18px;
 	color: white;
 	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 40px;
+	margin-right: 40px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-left: 50px;
@@ -147,7 +147,7 @@ div#conteiner_text{
 	font-family: 'Helvetica';
 	width: auto;
 	margin-left: 75px;
-	margin-right: 0px;
+	margin-right: 75px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	min-height: 610px;
@@ -159,13 +159,13 @@ div#conteiner_text{
 
 div#footer{
 	min-height: 25px;
-	width: 1280px;
+	width: auto;
 	background-color: #db5858;
 	font-family: 'Helvetica';
 	font-size: 13px;
 	color: white;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 40px;
+	margin-right: 40px;
 	border-radius: 5px;
 	box-shadow: 5px 5px 25px -5px black;
 }

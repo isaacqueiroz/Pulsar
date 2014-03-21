@@ -6,7 +6,7 @@ class EvaluationsController < ApplicationController
 		@user = User.find(params[:user_id])
 		@evaluation = Evaluation.new
     	@evaluation.build_user
-    	if @user.profile.sex.blank?
+    	if @user.profile.blank? || @user.profile.sex.blank?
     		render layout: "new_evaluation_m"
     	else
     		if @user.profile.sex == "masc"

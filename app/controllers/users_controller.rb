@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 
 		if @user.save
-			redirect_to(@user, :notice => "Usuário criado com sucesso")
+			redirect_to(new_user_profile_path(@user), :notice => "Usuário criado com sucesso")
 		else
 			render :action => "new"
 		end
