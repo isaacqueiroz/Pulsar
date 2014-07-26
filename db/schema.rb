@@ -95,9 +95,9 @@ ActiveRecord::Schema.define(:version => 20131114004841) do
     t.integer  "cristais"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
     t.date     "dataexame"
     t.text     "obs"
-    t.integer  "user_id"
   end
 
   add_index "exams", ["user_id"], :name => "index_exams_on_user_id"

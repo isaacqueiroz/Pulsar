@@ -1,0 +1,109 @@
+[ 2014-07-26 10:18:46.0272 61410/7f387e08e740 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'darvius', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS4xNXBzdGtuL3RlbXBfZGlyX3RvdWNoZXIucGlk', 'default_group' => 'darvius', 'default_python' => 'python', 'default_ruby' => '/home/darvius/.rvm/gems/ruby-1.9.3-p547/wrappers/ruby', 'default_user' => 'darvius', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.15pstkn/locations.ini', 'passenger_version' => '4.0.48', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMQA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.48', 'web_server_pid' => '61409', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-07-26 10:18:46.0353 61413/7f9c1eefd740 agents/HelperAgent/Main.cpp:649 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.61409/generation-0/request
+[ 2014-07-26 10:18:46.0413 61419/7f60dcac2740 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.61409/generation-0/logging
+[ 2014-07-26 10:18:46.0428 61410/7f387e08e740 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 61458 stdout: 
+App 61458 stdout: 
+[ 2014-07-26 10:18:48.8622 61413/7f9c1ee05700 Pool2/Implementation.cpp:284 ]: Could not spawn process for application /home/darvius/Projetos/Pulsar: An error occured while starting up the preloader.
+  Error ID: 17a29602
+  Error details saved to: /tmp/passenger-error-jSkoDq.html
+  Message from application: <p>It looks like Bundler could not find a gem. Maybe you didn't install all the gems that this application needs. To install your gems, please run:</p>
+
+  <pre class="commands">bundle install</pre>
+
+<p>If that didn't work, then the problem is probably caused by your application being run under a different environment than it's supposed to. Please check the following:</p>
+
+<ol>
+  <li>Is this app supposed to be run as the <code>darvius</code> user?</li>
+  <li>Is this app being run on the correct Ruby interpreter? Below you will
+      see which Ruby interpreter Phusion Passenger attempted to use.</li>
+  <li>Please check whether the correct RVM gemset is being used.</li>
+  <li>Sometimes, RVM gemsets may be broken.
+      <a href="https://github.com/phusion/passenger/wiki/Resetting-RVM-gemsets">Try resetting them.</a></li>
+</ol>
+
+<p>-------- The exception is as follows: -------</p>
+Could not find rmagick-2.13.2 in any of the sources (Bundler::GemNotFound)
+<pre>  /home/darvius/.rvm/gems/ruby-1.9.3-p547@global/gems/bundler-1.6.3/lib/bundler/spec_set.rb:92:in `block in materialize'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547@global/gems/bundler-1.6.3/lib/bundler/spec_set.rb:85:in `map!'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547@global/gems/bundler-1.6.3/lib/bundler/spec_set.rb:85:in `materialize'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547@global/gems/bundler-1.6.3/lib/bundler/definition.rb:133:in `specs'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547@global/gems/bundler-1.6.3/lib/bundler/definition.rb:178:in `specs_for'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547@global/gems/bundler-1.6.3/lib/bundler/definition.rb:167:in `requested_specs'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547@global/gems/bundler-1.6.3/lib/bundler/environment.rb:18:in `requested_specs'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547@global/gems/bundler-1.6.3/lib/bundler/runtime.rb:13:in `setup'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547@global/gems/bundler-1.6.3/lib/bundler.rb:120:in `setup'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547@global/gems/bundler-1.6.3/lib/bundler/setup.rb:17:in `&lt;top (required)&gt;'
+  /home/darvius/.rvm/rubies/ruby-1.9.3-p547/lib/ruby/site_ruby/1.9.1/rubygems/core_ext/kernel_require.rb:135:in `require'
+  /home/darvius/.rvm/rubies/ruby-1.9.3-p547/lib/ruby/site_ruby/1.9.1/rubygems/core_ext/kernel_require.rb:135:in `rescue in require'
+  /home/darvius/.rvm/rubies/ruby-1.9.3-p547/lib/ruby/site_ruby/1.9.1/rubygems/core_ext/kernel_require.rb:144:in `require'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/lib/phusion_passenger/loader_shared_helpers.rb:263:in `block in run_load_path_setup_code'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/lib/phusion_passenger/loader_shared_helpers.rb:366:in `running_bundler'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/lib/phusion_passenger/loader_shared_helpers.rb:261:in `run_load_path_setup_code'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/helper-scripts/rack-preloader.rb:100:in `preload_app'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/helper-scripts/rack-preloader.rb:158:in `&lt;module:App&gt;'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/helper-scripts/rack-preloader.rb:29:in `&lt;module:PhusionPassenger&gt;'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/helper-scripts/rack-preloader.rb:28:in `&lt;main&gt;'</pre>
+
+
+[ 2014-07-26 10:18:48.9149 61413/7f9c1ccdd700 agents/HelperAgent/RequestHandler.h:2305 ]: [Client 20] Cannot checkout session because a spawning error occurred. The identifier of the error is . Please see earlier logs for details about the error.
+[ 2014-07-26 10:46:17.6736 62941/7f07d3bfc740 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'darvius', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS51azVid3ovdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'darvius', 'default_python' => 'python', 'default_ruby' => '/home/darvius/.rvm/gems/ruby-1.9.3-p547/wrappers/ruby', 'default_user' => 'darvius', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.uk5bwz/locations.ini', 'passenger_version' => '4.0.48', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMQA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.48', 'web_server_pid' => '62940', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-07-26 10:46:17.6820 62944/7f719dd55740 agents/HelperAgent/Main.cpp:649 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.62940/generation-0/request
+[ 2014-07-26 10:46:17.6896 62950/7fd6f356a740 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.62940/generation-0/logging
+[ 2014-07-26 10:46:17.6901 62941/7f07d3bfc740 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 62989 stdout: 
+App 62989 stdout: 
+[ 2014-07-26 10:46:23.9712 62944/7f719dc6f700 Pool2/Implementation.cpp:284 ]: Could not spawn process for application /home/darvius/Projetos/Pulsar: An error occured while starting up the preloader.
+  Error ID: fd7ddd53
+  Error details saved to: /tmp/passenger-error-Gn3EmZ.html
+  Message from application: Access denied for user 'root'@'localhost' (using password: YES) (Mysql2::Error)
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/mysql2-0.3.15/lib/mysql2/client.rb:67:in `connect'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/mysql2-0.3.15/lib/mysql2/client.rb:67:in `initialize'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/mysql2_adapter.rb:16:in `new'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/mysql2_adapter.rb:16:in `mysql2_connection'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:315:in `new_connection'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:325:in `checkout_new_connection'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:247:in `block (2 levels) in checkout'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:242:in `loop'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:242:in `block in checkout'
+  /home/darvius/.rvm/rubies/ruby-1.9.3-p547/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:239:in `checkout'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:102:in `block in connection'
+  /home/darvius/.rvm/rubies/ruby-1.9.3-p547/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:101:in `connection'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:410:in `retrieve_connection'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_specification.rb:171:in `retrieve_connection'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_specification.rb:145:in `connection'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/activerecord-3.2.13/lib/active_record/railtie.rb:88:in `block in <class:Railtie>'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/railties-3.2.13/lib/rails/initializable.rb:30:in `instance_exec'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/railties-3.2.13/lib/rails/initializable.rb:30:in `run'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/railties-3.2.13/lib/rails/initializable.rb:55:in `block in run_initializers'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/railties-3.2.13/lib/rails/initializable.rb:54:in `each'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/railties-3.2.13/lib/rails/initializable.rb:54:in `run_initializers'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/railties-3.2.13/lib/rails/application.rb:136:in `initialize!'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/railties-3.2.13/lib/rails/railtie/configurable.rb:30:in `method_missing'
+  /home/darvius/Projetos/Pulsar/config/environment.rb:5:in `<top (required)>'
+  config.ru:3:in `require'
+  config.ru:3:in `block in <main>'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/rack-1.4.5/lib/rack/builder.rb:51:in `instance_eval'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/rack-1.4.5/lib/rack/builder.rb:51:in `initialize'
+  config.ru:1:in `new'
+  config.ru:1:in `<main>'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/helper-scripts/rack-preloader.rb:112:in `eval'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/helper-scripts/rack-preloader.rb:112:in `preload_app'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/helper-scripts/rack-preloader.rb:158:in `<module:App>'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/helper-scripts/rack-preloader.rb:29:in `<module:PhusionPassenger>'
+  /home/darvius/.rvm/gems/ruby-1.9.3-p547/gems/passenger-4.0.48/helper-scripts/rack-preloader.rb:28:in `<main>'
+
+
+[ 2014-07-26 10:46:23.9775 62944/7f718f7fe700 agents/HelperAgent/RequestHandler.h:2305 ]: [Client 20] Cannot checkout session because a spawning error occurred. The identifier of the error is . Please see earlier logs for details about the error.
+[ 2014-07-26 10:48:51.8541 63132/7fe9b1e94740 agents/Watchdog/Main.cpp:538 ]: Options: { 'analytics_log_user' => 'darvius', 'cleanup_pidfiles' => 'L3RtcC9wYXNzZW5nZXItc3RhbmRhbG9uZS44djdzZmcvdGVtcF9kaXJfdG91Y2hlci5waWQ=', 'default_group' => 'darvius', 'default_python' => 'python', 'default_ruby' => '/home/darvius/.rvm/gems/ruby-1.9.3-p547/wrappers/ruby', 'default_user' => 'darvius', 'log_level' => '0', 'max_pool_size' => '6', 'passenger_root' => '/tmp/passenger-standalone.8v7sfg/locations.ini', 'passenger_version' => '4.0.48', 'pool_idle_time' => '300', 'prestart_urls' => 'aHR0cDovLzAuMC4wLjA6MzAwMQA=', 'temp_dir' => '/tmp', 'union_station_gateway_address' => 'gateway.unionstationapp.com', 'union_station_gateway_port' => '443', 'user_switching' => 'false', 'web_server_passenger_version' => '4.0.48', 'web_server_pid' => '63131', 'web_server_type' => 'nginx', 'web_server_worker_gid' => '-1', 'web_server_worker_uid' => '-1' }
+[ 2014-07-26 10:48:51.8617 63135/7f93756ae740 agents/HelperAgent/Main.cpp:649 ]: PassengerHelperAgent online, listening at unix:/tmp/passenger.1.0.63131/generation-0/request
+[ 2014-07-26 10:48:51.8992 63141/7ff4614a6740 agents/LoggingAgent/Main.cpp:321 ]: PassengerLoggingAgent online, listening at unix:/tmp/passenger.1.0.63131/generation-0/logging
+[ 2014-07-26 10:48:51.8999 63132/7fe9b1e94740 agents/Watchdog/Main.cpp:728 ]: All Phusion Passenger agents started!
+App 63180 stdout: 
+[ 2014-07-26 10:48:57.4007 63135/7f93755c8700 Pool2/SmartSpawner.h:298 ]: Preloader for /home/darvius/Projetos/Pulsar started on PID 63180, listening on unix:/tmp/passenger.1.0.63131/generation-0/backends/preloader.63180
+App 63201 stdout: 
+App 63291 stdout: 
+App 63298 stdout: 
+App 63305 stdout: 
